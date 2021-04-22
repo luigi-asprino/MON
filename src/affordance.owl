@@ -240,7 +240,35 @@ References
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An affordance is modelled in DnS fashion and is an n-ary that relates state of the world (i.e., situations) to tasks according to specific weights or affordance strengths.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An affordance is modelled in DnS fashion and is an n-ary that relates state of the world (i.e., stereotyped situations) to tasks according to specific weights or affordance strengths.
+
+In the following scenario
+
+&lt;pre&gt;
+:UserWantsToListenToSomeMusic a dul:Description .
+
+:BatteryInCritalLevel a dul:Description .
+
+:PlayMusic a action:Task;
+  aff:hasParameter :genre .
+
+:Recharge a aff:Task.
+
+:affordancePlayMusicBatteryCritical a aff:Affodance ;
+  aff:affordanceStrength &quot;-10&quot;^^xsd:double ;
+  aff:holds :BatteryInCritalLevel ;
+  aff:hasTask :PlayMusic  .
+
+:affordancePlayMusicUserWantsToListenToSomeMusic a aff:Affodance ;
+  aff:affordanceStrength &quot;10&quot;^^xsd:double ; 
+  aff:holds :UserWantsToListenToSomeMusic ;
+  aff:hasTask :PlayMusic  .
+
+:affordanceRechargeBatteryCritical a aff:Affodance ;
+  aff:affordanceStrength &quot;1&quot;^^xsd:double ;
+  aff:holds :BatteryInCritalLevel ; 
+  aff:hasTask :Recharge  .
+&lt;/pre&gt;</rdfs:comment>
         <rdfs:label xml:lang="en">Affordance</rdfs:label>
     </owl:Class>
     

@@ -247,16 +247,18 @@ Otherwise, if the battery is in critical level, then X go recharging itself.
     <owl:Class rdf:about="https://w3id.org/MON/affordance.owl#Affordance">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Relation"/>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/MON/affordance.owl#hasGoal"/>
-                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/MON/affordance.owl#hasTask"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/action.owl#Task"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/MON/affordance.owl#hasGoal"/>
+                        <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/MON/affordance.owl#hasTask"/>
+                        <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -295,6 +297,66 @@ Otherwise, if the battery is in critical level, then X go recharging itself.
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A parameter of a behavior.</rdfs:comment>
         <rdfs:label xml:lang="en">Behavior parameter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/affordance.owl#a -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/MON/affordance.owl#a">
+        <rdf:type rdf:resource="https://w3id.org/MON/affordance.owl#Affordance"/>
+        <hasGoal rdf:resource="https://w3id.org/MON/affordance.owl#g"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/MON/affordance.owl#g -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/MON/affordance.owl#g">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/MON/affordance.owl#t -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/MON/affordance.owl#t">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/affordance.owl#hasGoal"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/affordance.owl#hasTask"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
     </owl:Class>
 </rdf:RDF>
 

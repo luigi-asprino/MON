@@ -1,0 +1,713 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/cga.owl"
+     xmlns:timeindexedsituation="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:spmsq="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#"
+     xmlns:clinicalact="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:action="http://www.ontologydesignpatterns.org/ont/mario/action.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://www.ontologydesignpatterns.org/ont/mario/time.owl#"
+     xmlns:cga="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/questionanswer.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/medicationuse.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl"/>
+        <cpannotationschema:hasIntent xml:lang="en">To represent the &apos;Comprehensive Geriatric Assessment&apos; and the results of its executions.</cpannotationschema:hasIntent>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#assessesPatient -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#assessesPatient">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#involvesPatient"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Patient"/>
+        <rdfs:comment xml:lang="en">A relation between the execution of an assessment and the corresponding assessed Patient.</rdfs:comment>
+        <rdfs:label xml:lang="en">assesses patient</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#assessesSituation -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#assessesSituation">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <rdfs:comment xml:lang="en">It is used to associate a Geriatric Assessment with the situation to which it refers to.</rdfs:comment>
+        <rdfs:label xml:lang="en">assesses situation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#derivedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#derivedFrom">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:comment xml:lang="en">It associates a certain assessment with the answer from which it is derived.</rdfs:comment>
+        <rdfs:label xml:lang="en">derived from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#hasText -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#hasText">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <rdfs:comment xml:lang="en">The textual content of a question.</rdfs:comment>
+        <rdfs:label xml:lang="en">has text</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#isAssessedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#isAssessedBy">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ClinicalTest"/>
+                    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#toQuestion -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#toQuestion">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Answer"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <rdfs:comment xml:lang="en">It is used to connect the answer to the question to which it refers to.</rdfs:comment>
+        <rdfs:label xml:lang="en">to question</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#answer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#answer">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Answer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">It encodes the text of the answer.</rdfs:comment>
+        <rdfs:label xml:lang="en">answer</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#correctResponse -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#correctResponse">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Conditions under which the answer to the question is considered correct.</rdfs:comment>
+        <rdfs:label xml:lang="en">correct response</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#question -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#question">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">It encodes the text of the question.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">It encodes the score to give to the correct answer of the question or the score assigned to a certain answer.</rdfs:comment>
+        <rdfs:label xml:lang="en">score</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#scoreMax -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#scoreMax">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">score max</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#scoreMin -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#scoreMin">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">score min</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#textualContent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#textualContent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The textual content of a textual resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">textual content</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#Capability -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#Capability">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Sex"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Sex"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Answer -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Answer">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#toQuestion"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#answer"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">It represents the answer to a question provided by an Agent at a specific time.</rdfs:comment>
+        <rdfs:label xml:lang="en">Answer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ClinicalTest -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ClinicalTest">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ClinicalTest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The tests performed for assessing the state of a patient.</rdfs:comment>
+        <rdfs:label xml:lang="en">Clinical test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ComprehensiveGeriatricAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ComprehensiveGeriatricAssessment">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:comment xml:lang="en">Comprehensive geriatric assessment (CGA) is a a multidisciplinary diagnostic and treatment process that identifies medical, psychosocial, and functional limitations of a frail older person.</rdfs:comment>
+        <rdfs:label xml:lang="en">CGA</rdfs:label>
+        <rdfs:label xml:lang="en">Comprehensive Geriatric Assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#executesTask"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#ClinicalTest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#assessesPatient"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Patient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Sex"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <rdfs:comment xml:lang="en">The geriatric assessment is a multidimensional, multidisciplinary diagnostic instrument designed to collect data on the medical, psychosocial and functional capabilities and limitations of elderly patients.</rdfs:comment>
+        <rdfs:label xml:lang="en">Geriatric assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#hasText"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#correctResponse"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Sex"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <rdfs:comment xml:lang="en">A question in the CGA scenario.</rdfs:comment>
+        <rdfs:label>Question</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Sex -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Sex">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Text">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#hasLanguage"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#textualContent"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+        <rdfs:comment xml:lang="en">A textual content with the language sysstem in which it is expressed.</rdfs:comment>
+        <rdfs:label xml:lang="en">Text</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#ClinicalAct">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PatientCondition">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/ess.owl#PressureSoresRisk">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/language.owl#LinguisticSystem">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#Interval">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#MeasurementUnit">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

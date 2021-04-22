@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:cirs="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl"/>
+        <cpannotationschema:hasIntent xml:lang="en">To represent the results of the Cumulutave Illness Rating Scale (CIRS).</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the name of a rating in the CUMULATIVE ILLNESS RATING SCALE (C.I.R.S.)?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which was the illness rating according to CUMULATIVE ILLNESS RATING SCALE (C.I.R.S.) for a biological system at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which are the possible ratings in the CUMULATIVE ILLNESS RATING SCALE (C.I.R.S.)?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which was the patient&apos;s ILLNESS SEVERITY SCORE (CIRS-IS) at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the description of a biological system?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which was the patient&apos;s COMORBIDITY INDEX (CIRS-CI) at a certain time?</cpannotationschema:coversRequirements>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#assessesBiologicalSystem -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#assessesBiologicalSystem">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystemAssessment"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+        <rdfs:comment xml:lang="en">It is used to associate a Biological System Assessment with the assess Biological System.</rdfs:comment>
+        <rdfs:label xml:lang="en">assesses biological system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="en">has rating</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#comorbidityIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#comorbidityIndex">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSAssessment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">The number of biological system with a score of 3 or greater (excluded the psychiatric one).</rdfs:comment>
+        <rdfs:label xml:lang="en">Comorbidity index (CIRS-CI)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#illnessSeverityScore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#illnessSeverityScore">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSAssessment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:comment xml:lang="en">The mean of all single biological system assessment (excluded the psychiatric one) of a CIRS evalutation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Illness severity score (CIRS-IS)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A complex network of biologically relevant entities (e.g. respiratory system, vascular system).</rdfs:comment>
+        <rdfs:label xml:lang="en">Biological system</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystemAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystemAssessment">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#assessesBiologicalSystem"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The action of assessing the illness rating of the biological system of a patient.</rdfs:comment>
+        <rdfs:label xml:lang="en">Biological system assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSAssessment">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#BiologicalSystemAssessment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#comorbidityIndex"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#illnessSeverityScore"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The action of assessing the CIRS for a patient.</rdfs:comment>
+        <rdfs:label xml:lang="en">CIRS Assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#CIRSRating">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The ratings of the Cumulative Illness Rating Scale (CIRS)</rdfs:comment>
+        <rdfs:label xml:lang="en">CIRS rating</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

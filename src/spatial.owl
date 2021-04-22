@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:spa="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace">
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <rdfs:label xml:lang="en">has place</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
+        <rdfs:label xml:lang="en">has residence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <rdfs:label xml:lang="en">City</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <rdfs:label xml:lang="en">Residence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">Anything with spatial extent, i.e. size, shape, or position.</rdfs:comment>
+        <rdfs:label xml:lang="en">Spatial thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

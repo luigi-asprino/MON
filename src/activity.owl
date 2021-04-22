@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/activity.owl"
+     xmlns:activity="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/listeningtomusic.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/calling.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/appuse.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#includes">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#Activity"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action"/>
+        <rdfs:comment>It links the activity to the actions included in it.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#involvesPatient -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#involvesPatient">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/calling.owl#hasCallee -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/calling.owl#hasCallee">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/calling.owl#hasCaller -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/calling.owl#hasCaller">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#Activity -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#Activity">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#byAgent"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#includes"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An activity is an Action carried out at a certain time by at least one Person that participates in it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#CallingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#CallingTask">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#ChattingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#ChattingTask"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#DrinkingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#DrinkingTask"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#EatingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#EatingTask"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/activity.owl#PlayingTask -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#PlayingTask"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

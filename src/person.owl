@@ -1,0 +1,831 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/person.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/person.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:person="http://www.ontologydesignpatterns.org/ont/mario/person.owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl"/>
+        <cpannotationschema:coversRequirements xml:lang="en">When were a person born?</cpannotationschema:coversRequirements>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#auntOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#auntOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">aunt of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#brotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#brotherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#siblingOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">brother of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#childInLawOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#childInLawOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:comment xml:lang="en">A spouse of one&apos;s child.</rdfs:comment>
+        <rdfs:label xml:lang="en">child in law of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#childOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#childOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">child of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#closeFriendOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#closeFriendOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">close friend of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#colleagueOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#colleagueOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">colleague of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#cousinOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#cousinOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label xml:lang="en">cousin of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#daughterInLawOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#daughterInLawOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#childInLawOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">daughter in law of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#daughterOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#daughterOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#childOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">daughter of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#engagedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#engagedTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">engaged to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#fatherInLaw -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#fatherInLaw">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentInLaw"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:comment xml:lang="en">A father-in-law is the father of a person&apos;s spouse.</rdfs:comment>
+        <rdfs:label xml:lang="en">father in law of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#fatherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#fatherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">father of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#friendOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#friendOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">friend of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandchildOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandchildOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandparentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">grandchild of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#granddaughterOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#granddaughterOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandchildOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">granddaughter of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandfatherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandfatherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandparentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">grandfather of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandmotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandmotherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandparentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">grandmother of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandparentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandparentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">grandparent of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandsonOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandsonOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#grandchildOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">grandson of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasBirthPlace -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasBirthPlace">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <rdfs:comment xml:lang="en">It is used to connect a Person with a town where he/she was born.</rdfs:comment>
+        <rdfs:label xml:lang="en">has birth place</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasGender -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasGender">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
+        <rdfs:label xml:lang="en">has gender</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasHometown -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasHometown">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <rdfs:comment xml:lang="en">It is used to connect a Person with a town where s/he grew up.</rdfs:comment>
+        <rdfs:label xml:lang="en">has hometown</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">has relationship with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#husbandOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#husbandOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#spouseOf"/>
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#wifeOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">husband of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#lifePartnerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#lifePartnerOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">life partner of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#livesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#livesIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <rdfs:comment xml:lang="en">It is used to connect a Person with the Place where s/he currently lives in.</rdfs:comment>
+        <rdfs:label xml:lang="en">lives in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#livesWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#livesWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">lives with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#motherInLaw -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#motherInLaw">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentInLaw"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:comment xml:lang="en">A mother-in-law is the mother of a person&apos;s spouse.</rdfs:comment>
+        <rdfs:label xml:lang="en">mother in law of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#motherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#motherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">mother of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#nephewOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#nephewOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">nephew of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#nieceOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#nieceOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">niece of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentInLaw -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentInLaw">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:label xml:lang="en">parent in law of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#parentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">parent of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#siblingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#siblingOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">sibling of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#sisterOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#sisterOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#siblingOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">sister of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#sonInLawOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#sonInLawOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#childInLawOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">son in law of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#sonOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#sonOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#childOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:label xml:lang="en">son of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#spouseOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#spouseOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">spouse of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepfatherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepfatherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepparentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:comment xml:lang="en">Mother&apos;s spouse</rdfs:comment>
+        <rdfs:label xml:lang="en">stepfather of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepmotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepmotherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepparentOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:comment xml:lang="en">Father&apos;s spouse</rdfs:comment>
+        <rdfs:label xml:lang="en">stepmother of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepparentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#stepparentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:comment xml:lang="en">Mother&apos;s spouse or father&apos;s spouse.</rdfs:comment>
+        <rdfs:label xml:lang="en">stepparent of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#uncleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#uncleOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">uncle of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#wifeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#wifeOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#spouseOf"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+        <rdfs:label xml:lang="en">wife of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#worksWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#worksWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasRelationshipWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:label xml:lang="en">works with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence">
+        <rdfs:label xml:lang="en">has residence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#birthDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#birthDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label xml:lang="en">birth date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#deathDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#deathDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label xml:lang="en">death date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#firstName">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">first name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#lastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#lastName">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">last name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#maidenName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#maidenName">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The original surname of a married woman who uses her husband&apos;s surname name after marriage.</rdfs:comment>
+        <rdfs:label xml:lang="en">maiden name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#nickname -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#nickname">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:comment xml:lang="en">A familiar name given to a person or thing instead of or as well as the real name.</rdfs:comment>
+        <rdfs:label xml:lang="en">nickname</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#personalHomepage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#personalHomepage">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:label xml:lang="en">personal homepage</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#personalMailbox -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#personalMailbox">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">personal mailbox</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#phone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#phone">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">phone number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasGender"/>
+                <owl:hasValue rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasGender"/>
+                <owl:hasValue rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasGender"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasBirthPlace"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#hasHometown"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A human being regarded as an individual.</rdfs:comment>
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex">
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+        <rdfs:label>Sex</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#City"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male -->
+
+    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female">
+        <rdfs:label xml:lang="en">Female</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male">
+        <rdfs:label xml:lang="en">Male</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Female"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Male"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

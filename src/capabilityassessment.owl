@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:clinicalact="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:action="http://www.ontologydesignpatterns.org/ont/mario/action.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DUL="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:time="http://www.ontologydesignpatterns.org/ont/mario/time.owl#"
+     xmlns:ca="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl"/>
+        <cpannotationschema:coversRequirements xml:lang="en">Which are the capabilities needed to assess the ADL?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which was the total score of the ADL questionnaire of a certain patient at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the description of a certain capability level?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the total score of the IADL questionare of a certain patient at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the ADL question used to assess the capability level of a certain patient?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in ADL associated with a certain capability level?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which was the level of capability of the instrumental activities of the daily living (such as, using a telephone, shopping, preparing food, housekeeping, laundering, getting means of transportation, having responsibility of own medications, managing finances) of a  patient at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Which was the level of capability of the activities of daily living (such as, bathing, dressing, toileting, transferring, controlling urination and bowel movement, feeding) of a patient at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:hasIntent xml:lang="en">To represent the results of ADL and IADL.</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the score of a correct answer of a certain question?</cpannotationschema:coversRequirements>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#derivedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#derivedFrom"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#hasCapability -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#hasCapability">
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#Capability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#hasCapabilityLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#hasCapabilityLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#isAssessedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#isAssessedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#Capability -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#Capability">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#isAssessedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The power or ability to do something</rdfs:comment>
+        <rdfs:label xml:lang="en">Capability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityAssessment">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#hasCapabilityLevel"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#IndexAssessment"/>
+        <rdfs:comment xml:lang="en">An action with the aim of assessing the level of some capability of a certain patient at a certain time by performing a certain test.</rdfs:comment>
+        <rdfs:label xml:lang="en">Capability assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityLevel">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#hasCapability"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#Capability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#isAssessedBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The level of a certain capability intended as the quality of a performance in doing something.</rdfs:comment>
+        <rdfs:label xml:lang="en">Capability level</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#IndexAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#IndexAssessment">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/capabilityassessment.owl#CapabilityAssessment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The action of assessing a geriatric index.</rdfs:comment>
+        <rdfs:label xml:lang="en">Index assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#Question"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

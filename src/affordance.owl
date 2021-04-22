@@ -20,7 +20,38 @@ The Affordance ontology is designed by relying on the assumption that, not only 
 
 The affordance is formalised as a weighted relation (i.e. a specialization of dul:Relation), which connects a stereotyped situation (i.e. a dul:Description) to the task to be performed in the situation (i.e. a dul:Task) or the goal that the agent has to achieve in a given situation (i.e. dul:Goal).
 
-References
+We provide an example of usage of the Affordance ontology for specifying the following scenario.
+X is a social robot able to entertain its user by playing music. X can play whatever musical genre the user likes and whenever the user wants to, unless its battery is in critical level.
+Therefore, if the the user wants to listen to some music and the battery is not in critical level, X accommodates the user&apos;s request.
+Otherwise, if the battery is in critical level, then X go recharging itself.
+
+&lt;pre&gt;
+:UserWantsToListenToSomeMusic a dul:Description .
+
+:BatteryInCritalLevel a dul:Description .
+
+:PlayMusic a action:Task;
+  aff:hasParameter :genre .
+
+:Recharge a aff:Task.
+
+:affordancePlayMusicBatteryCritical a aff:Affodance ;
+  aff:affordanceStrength &quot;-10&quot;^^xsd:double ;
+  aff:holds :BatteryInCritalLevel ;
+  aff:hasTask :PlayMusic  .
+
+:affordancePlayMusicUserWantsToListenToSomeMusic a aff:Affodance ;
+  aff:affordanceStrength &quot;10&quot;^^xsd:double ; 
+  aff:holds :UserWantsToListenToSomeMusic ;
+  aff:hasTask :PlayMusic  .
+
+:affordanceRechargeBatteryCritical a aff:Affodance ;
+  aff:affordanceStrength &quot;1&quot;^^xsd:double ;
+  aff:holds :BatteryInCritalLevel ; 
+  aff:hasTask :Recharge  .
+&lt;/pre&gt;
+
+&lt;b&gt;References&lt;/b&gt;
 
 - L. Asprino, A. G. Nuzzolese, A. Russo, A. Gangemi, V. Presutti, S. Nolfi. &quot;An  ontology  design  pattern  for  supporting  behaviour  arbitration  in  cognitive agents&quot; in:  K. Hammar, P. Hitzler, A. Krisnadhi, A. Lawrynowicz, A. G. Nuzzolese, M. Solanki (Eds.), Advances in Ontology Design and Patterns, IOS Press, 2017, pp. 85–95
 
@@ -240,35 +271,7 @@ References
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An affordance is modelled in DnS fashion and is an n-ary that relates state of the world (i.e., stereotyped situations) to tasks according to specific weights or affordance strengths.
-
-In the following scenario
-
-&lt;pre&gt;
-:UserWantsToListenToSomeMusic a dul:Description .
-
-:BatteryInCritalLevel a dul:Description .
-
-:PlayMusic a action:Task;
-  aff:hasParameter :genre .
-
-:Recharge a aff:Task.
-
-:affordancePlayMusicBatteryCritical a aff:Affodance ;
-  aff:affordanceStrength &quot;-10&quot;^^xsd:double ;
-  aff:holds :BatteryInCritalLevel ;
-  aff:hasTask :PlayMusic  .
-
-:affordancePlayMusicUserWantsToListenToSomeMusic a aff:Affodance ;
-  aff:affordanceStrength &quot;10&quot;^^xsd:double ; 
-  aff:holds :UserWantsToListenToSomeMusic ;
-  aff:hasTask :PlayMusic  .
-
-:affordanceRechargeBatteryCritical a aff:Affodance ;
-  aff:affordanceStrength &quot;1&quot;^^xsd:double ;
-  aff:holds :BatteryInCritalLevel ; 
-  aff:hasTask :Recharge  .
-&lt;/pre&gt;</rdfs:comment>
+        <rdfs:comment xml:lang="en">An affordance is modelled in DnS fashion and is an n-ary that relates state of the world (i.e., stereotyped situations) to tasks according to specific weights or affordance strengths.</rdfs:comment>
         <rdfs:label xml:lang="en">Affordance</rdfs:label>
     </owl:Class>
     

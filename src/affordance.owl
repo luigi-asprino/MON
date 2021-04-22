@@ -13,6 +13,7 @@
         <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:description xml:lang="en">https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Affordance.png</dc:description>
         <dc:title xml:lang="en">Affordance Ontology</dc:title>
         <j.0:coversRequirements xml:lang="en">What are the tasks afforded in a certain situation?</j.0:coversRequirements>
         <j.0:coversRequirements xml:lang="en">Which is the strength of an Affordance?</j.0:coversRequirements>
@@ -29,6 +30,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
     
 
 
@@ -229,7 +236,7 @@
     <!-- https://w3id.org/MON/affordance.owl#BehaviorParameter -->
 
     <owl:Class rdf:about="https://w3id.org/MON/affordance.owl#BehaviorParameter">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObjectAttribute"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>

@@ -13,6 +13,7 @@
         <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:title xml:lang="en">Affordance Ontology</dc:title>
         <j.0:coversRequirements xml:lang="en">What are the tasks afforded in a certain situation?</j.0:coversRequirements>
         <j.0:coversRequirements xml:lang="en">Which is the strength of an Affordance?</j.0:coversRequirements>
         <j.0:hasIntent xml:lang="en">To represent the model for supporting the action selection mechanism.</j.0:hasIntent>
@@ -28,6 +29,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
     
 
 
@@ -108,7 +115,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
         <owl:inverseOf rdf:resource="https://w3id.org/MON/affordance.owl#isHeldBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/MON/affordance.owl#Affordance"/>
-        <rdfs:comment xml:lang="en">It associates an Affordance with the Frame in which it holds.</rdfs:comment>
+        <rdfs:comment xml:lang="en">It associates an Affordance with the Description in which it holds.</rdfs:comment>
         <rdfs:label xml:lang="en">holds</rdfs:label>
     </owl:ObjectProperty>
     
@@ -119,7 +126,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/affordance.owl#isHeldBy">
         <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
         <rdfs:range rdf:resource="https://w3id.org/MON/affordance.owl#Affordance"/>
-        <rdfs:comment xml:lang="en">It associates a Frame with the Affordance it enables.</rdfs:comment>
+        <rdfs:comment xml:lang="en">It associates a Description with the Affordance it enables.</rdfs:comment>
         <rdfs:label xml:lang="en">is held by</rdfs:label>
     </owl:ObjectProperty>
     

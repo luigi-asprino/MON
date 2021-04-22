@@ -17,8 +17,8 @@
         <dc:description xml:lang="en">The Affordance ontology is one of the modules of the MARIO Ontology Network (&lt;a href=&quot;https://w3id.org/MON&quot;&gt;MON&lt;/a&gt;) which aims at extending the classical notion of affordance (Gibson 1977). 
 This theory suggests that the physical objects (e.g., a door) offer the opportunity of performing an action (e.g., open). 
 The Affordance ontology is designed by relying on the assumption that, not only physical objects, but also complex situations (e.g. the user want to listen to some music) afford actions (e.g. play music). A complex situation can be seen as the fulfilment at a certain time of certain conditions. These conditions may involve temporal aspects (e.g. lunchtime may afford the task remember the user to take the pills), the perception of certain physical objects, the receiving of a command (e.g. I want to listen to some music), or even the existence of certain state-of-affairs (e.g. the situation the user is sitting on a chair for a long while may afford the task entertain the user).
-Complex conditions in which a certain affordance relation holds are formalised as stereotyped situation in terms of dul:Description.
 
+The affordance is formalised as a weighted relation (i.e. a specialization of dul:Relation), which connects a stereotyped situation (i.e. a dul:Description) to the task to be performed in the situation (i.e. a dul:Task) or the goal that the agent has to achieve in a given situation (i.e. dul:Goal).
 
 References
 

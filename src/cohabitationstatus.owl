@@ -1,171 +1,98 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#"
-     xml:base="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:coh="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#">
-    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl"/>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the address of the place where a patient lives?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does the patient live alone or with relatives/nourse or in an institution?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the name of the place where the patient lives?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the assessment for a certain co-habitation status of a certain patient?</cpannotationschema:coversRequirements>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#hasPostalAddress -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#hasPostalAddress"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasResidence">
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Co-HabitationStatus -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Co-HabitationStatus">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#TimeIndexedSituation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#hasPlace"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#forPatient"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Patient"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/timeindexedsituation.owl#forEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A time indexed situation representing the co-habitation status for a patient at a certain time.</rdfs:comment>
-        <rdfs:label xml:lang="en">Co-Habitation status</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Co-HabitationStatusAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Co-HabitationStatusAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#assessesSituation"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Co-HabitationStatus"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An action with the aim of assessing the co-habitation status of a patient at a certain time.</rdfs:comment>
-        <rdfs:label xml:lang="en">Co-Habitation status assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#House -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#House">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
-        <rdfs:comment xml:lang="en">A building serving as a residence for one or more persons.</rdfs:comment>
-        <rdfs:label xml:lang="en">House</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Institution -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl#Institution">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#Residence">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#hasPostalAddress"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/postalAddress.owl#PostalAddress"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The place in which a person lives or resides.</rdfs:comment>
-        <rdfs:label xml:lang="en">Residence</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.0="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+  <owl:Ontology rdf:about="https://w3id.org/MON/cohabitationstatus.owl">
+    <j.0:coversRequirements xml:lang="en">Which is the assessment for a certain co-habitation status of a certain patient?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the name of the place where the patient lives?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does the patient live alone or with relatives/nourse or in an institution?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the address of the place where a patient lives?</j.0:coversRequirements>
+    <owl:imports rdf:resource="https://w3id.org/MON/timeindexedsituation.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/cga.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/postalAddress.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/spatial.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://w3id.org/MON/cohabitationstatus.owl#Institution">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#Residence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/cohabitationstatus.owl#Co-HabitationStatus">
+    <rdfs:label xml:lang="en">Co-Habitation status</rdfs:label>
+    <rdfs:comment xml:lang="en">A time indexed situation representing the co-habitation status for a patient at a certain time.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/timeindexedsituation.owl#forEntity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/healthrole.owl#Patient"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/timeindexedsituation.owl#forPatient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#Residence"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/spatial.owl#hasPlace"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/timeindexedsituation.owl#TimeIndexedSituation"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/cohabitationstatus.owl#House">
+    <rdfs:label xml:lang="en">House</rdfs:label>
+    <rdfs:comment xml:lang="en">A building serving as a residence for one or more persons.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#Residence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#Residence">
+    <rdfs:label xml:lang="en">Residence</rdfs:label>
+    <rdfs:comment xml:lang="en">The place in which a person lives or resides.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/postalAddress.owl#PostalAddress"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/postalAddress.owl#hasPostalAddress"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/cohabitationstatus.owl#Co-HabitationStatusAssessment">
+    <rdfs:label xml:lang="en">Co-Habitation status assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">An action with the aim of assessing the co-habitation status of a patient at a certain time.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/cohabitationstatus.owl#Co-HabitationStatus"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#assessesSituation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/spatial.owl#hasResidence">
+    <rdfs:range rdf:resource="https://w3id.org/MON/spatial.owl#Residence"/>
+  </owl:ObjectProperty>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
-

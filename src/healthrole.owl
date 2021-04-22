@@ -1,217 +1,111 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#"
-     xml:base="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:healthRole="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasHealthRole -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasHealthRole">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-        <rdfs:comment xml:lang="en">It relates a person with its role in a health context.</rdfs:comment>
-        <rdfs:label xml:lang="en">has health role</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasPatient -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasPatient">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Patient"/>
-        <rdfs:comment xml:lang="en">The patient who participates to the Action.</rdfs:comment>
-        <rdfs:label xml:lang="en">has patient</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Action">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-        <rdfs:comment xml:lang="en">The roles of the persons involved in the assistive context.</rdfs:comment>
-        <rdfs:label xml:lang="en">Health Role</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Nurse -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Nurse">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasHealthRole"/>
-                <owl:hasValue rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#NurseRole"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A person trained to care for the sick or infirm, especially in a hospital.</rdfs:comment>
-        <rdfs:label xml:lang="en">Nurse</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Patient -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Patient">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasHealthRole"/>
-                <owl:hasValue rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#PatientRole"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A person who participates in a healthcare act while playing the patient role.</rdfs:comment>
-        <rdfs:label xml:lang="en">Patient</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Physician -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#Physician">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#hasHealthRole"/>
-                <owl:hasValue rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#PhysicianRole"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A doctor; a person who has been educated, trained, and licensed to practice the art and science of medicine.</rdfs:comment>
-        <rdfs:label xml:lang="en">Physician</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Sex">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spatial.owl#SpatialThing">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#NurseRole -->
-
-    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#NurseRole">
-        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#PatientRole -->
-
-    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#PatientRole">
-        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#PhysicianRole -->
-
-    <owl:NamedIndividual rdf:about="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#PhysicianRole">
-        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/healthrole.owl#HealthRole"/>
-    </owl:NamedIndividual>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="https://w3id.org/MON/healthrole.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://w3id.org/MON/healthrole.owl">
+    <owl:imports rdf:resource="https://w3id.org/MON/person.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://w3id.org/MON/healthrole.owl#Physician">
+    <rdfs:label xml:lang="en">Physician</rdfs:label>
+    <rdfs:comment xml:lang="en">A doctor; a person who has been educated, trained, and licensed to practice the art and science of medicine.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue>
+          <j.0:HealthRole rdf:about="https://w3id.org/MON/healthrole.owl#PhysicianRole">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </j.0:HealthRole>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/healthrole.owl#hasHealthRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/healthrole.owl#HealthRole">
+    <rdfs:label xml:lang="en">Health Role</rdfs:label>
+    <rdfs:comment xml:lang="en">The roles of the persons involved in the assistive context.</rdfs:comment>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    <owl:disjointWith>
+      <rdf:Description rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+      </rdf:Description>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <rdf:Description rdf:about="https://w3id.org/MON/person.owl#Sex">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+      </rdf:Description>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/healthrole.owl#Patient">
+    <rdfs:label xml:lang="en">Patient</rdfs:label>
+    <rdfs:comment xml:lang="en">A person who participates in a healthcare act while playing the patient role.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue>
+          <j.0:HealthRole rdf:about="https://w3id.org/MON/healthrole.owl#PatientRole">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </j.0:HealthRole>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/healthrole.owl#hasHealthRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/healthrole.owl#Nurse">
+    <rdfs:label xml:lang="en">Nurse</rdfs:label>
+    <rdfs:comment xml:lang="en">A person trained to care for the sick or infirm, especially in a hospital.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue>
+          <j.0:HealthRole rdf:about="https://w3id.org/MON/healthrole.owl#NurseRole">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </j.0:HealthRole>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/healthrole.owl#hasHealthRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/healthrole.owl#hasPatient">
+    <rdfs:label xml:lang="en">has patient</rdfs:label>
+    <rdfs:comment xml:lang="en">The patient who participates to the Action.</rdfs:comment>
+    <rdfs:range rdf:resource="https://w3id.org/MON/healthrole.owl#Patient"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/healthrole.owl#hasHealthRole">
+    <rdfs:label xml:lang="en">has health role</rdfs:label>
+    <rdfs:comment xml:lang="en">It relates a person with its role in a health context.</rdfs:comment>
+    <rdfs:range rdf:resource="https://w3id.org/MON/healthrole.owl#HealthRole"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+  </owl:ObjectProperty>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/person.owl#Sex"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/healthrole.owl#HealthRole"/>
+    <owl:disjointWith>
+      <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/person.owl#Sex"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/healthrole.owl#HealthRole"/>
+      </rdf:Description>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Agent">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/person.owl#Sex"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/healthrole.owl#HealthRole"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
+      </rdf:Description>
+    </owl:disjointWith>
+  </rdf:Description>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
-

@@ -1,1070 +1,853 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#"
-     xml:base="http://www.ontologydesignpatterns.org/ont/mario/mna.owl"
-     xmlns:mna="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/medicationuse.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cohabitationstatus.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl"/>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a certain patient consume 2 or more servings of fruits or vegetables per day?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA associated with a level of gravity of neurological problems?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does the patient have pressure sores or skin ulcers?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">How many full meals does the patient eat daily?</cpannotationschema:coversRequirements>
-        <cpannotationschema:hasIntent xml:lang="en">To represent the results of the Mini Nutritional Assessment (MNA).</cpannotationschema:hasIntent>
-        <cpannotationschema:coversRequirements xml:lang="en">How does a patient consider him/her health status in comparison with other people with the same age (not as good/does not know/as good/better)?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which Mid-arm circumference (in cm) was of a patient at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the description of a level of gravity of neurological problems in the MNA?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain interval of BMI values?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">How much fluids does a patient consume per day?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which was the gravity of a patient neurological problems at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score of a MNA mobility level?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a patient live independently?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain interval of Mid-arm circumference values?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which was the mobility of a patient at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain quantity of weight loss in the last three month?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA if the patient has pressure sores or skin ulcers?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a certain patient usually take at least 1 serving of dairy products (milk, cheese, yogurt) per day?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">How many drugs does a patient take?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which are the mobility levels considered in the MNA?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the description of a MNA mobility level?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which are the levels of gravity of neurological problems in the MNA?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain interval of Calf circumference values?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA if the patient has (or not) suffered of psychological stress or acute disease in the last 3 months?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA if the patient takes (or doesn&apos;t take) more than 3 drugs or not?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a patient need of assistance in feeding? Is self-feed with some difficulties? Or, is self feed without any problems?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a patient view him/herself as having nutritional problems (major malnutrition/does not know/ no nutritional problems)? </cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Has a patient declined food intake due to loss of appetite? </cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Has a patient suffered of psychological stress or acute disease?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a certain patient usually take 2 or more servings of legumes or eggs per week?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which was the weight (in kg) of a patient at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA if the patient has 1/2 or 3 meals?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Does a certain patient take meat, fisk or poultry every day?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which was the height (in cm) of a patient at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which was the Calf circumference (in cm) of a patient at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score in the MNA if the patient lives (or doesn&apos;t live) independently?</cpannotationschema:coversRequirements>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasBMI -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasBMI"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasCC -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasCC"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasHeight -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasHeight"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasMAC -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasMAC"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeight -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeight"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeightLoss -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeightLoss"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#AnthropometricAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#AnthropometricAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:comment xml:lang="en">This class represents the Anthropometric Assessments of the Mini Nutritional Assessment (MNA).</rdfs:comment>
-        <rdfs:label xml:lang="en">MNA Anthropometric Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#BMIAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#BMIAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#AnthropometricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#BMIRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasBMI"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasHeight"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeight"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the BMI of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">BMI assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#BMIRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#BMIRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasBMI"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#Interval"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the BMI in the Mini Nutritional Assessment.</rdfs:comment>
-        <rdfs:label xml:lang="en">BMI Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#CCRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#CCRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasCC"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#Interval"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the Calf Circumference (CC) in the Mini Nutritional Assessment (MNA).</rdfs:comment>
-        <rdfs:label xml:lang="en">Calf Circumference (CC) Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#CalfCircumferenceAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#CalfCircumferenceAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#AnthropometricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#CCRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasCC"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the Calf Circumference (CC) of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Calf Circumference (CC) Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ConsumesAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ConsumesAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ConsumesRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the consumes of a Patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Consumes Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ConsumesRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ConsumesRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating in the Mini Nutritional Assessment (MNA) of the consumes of a Patient, e.g. if two of the following three conditions are satisfied the score is 0.5: the patient consumes at least 1 serving of dairy products (milk, cheese, yogurt) per day, the patient takes 2 or more servings of legumes or eggs per week, the patient eats meat, fisk or poultry every day.</rdfs:comment>
-        <rdfs:label xml:lang="en">Consumes Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:comment xml:lang="en">This class represents the Dietary Assessment of the Mini Nutritional Assessment (MNA).</rdfs:comment>
-        <rdfs:label xml:lang="en">MNA Dietary Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DrugsPerDayRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DrugsPerDayRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the number of drugs taken by the patient per day in the Mini Nutritional Assessment (MNA), e.g. if the patient takes more than 3 drugs per day the score in the MNA is 0.</rdfs:comment>
-        <rdfs:label>Drugs per day Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FluidsConsumesAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FluidsConsumesAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FluidsConsumesRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the fluids consumes of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Fluids consumes Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FluidsConsumesRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FluidsConsumesRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating in the MNA of the fluid consumes of a patient, e.g. if a patient consumes more than 9 glasses of fluids per day, the score is 1.</rdfs:comment>
-        <rdfs:label xml:lang="en">Fluids consumes Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FruitConsumesRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FruitConsumesRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Servings Fruit Vegetables consumes Rating</rdfs:label>
-        <rdfs:label xml:lang="en">The rating of the servings or fruits or vegetables consumes of a patient in the MNA, e.g. if the patient consumes 2 or more servings or fruits or vegetables per day the score is 1.</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FullMealsAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FullMealsAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FullMealsRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the number of full meals eaten by a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Full meals Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FullMealsRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FullMealsRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the number of full meals in the Mini Nutritional Assessment, e.g. if the patient eats 2 full meals daily, the score in the MNA is 1.</rdfs:comment>
-        <rdfs:label xml:lang="en">Full meals Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:comment xml:lang="en">This class represent the General Assessments of the Multi Nutritional Assessment (MNA).</rdfs:comment>
-        <rdfs:label xml:lang="en">MNA General Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#HealthStatusComparisonAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#HealthStatusComparisonAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#SelfAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#HealthStatusComparisonRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the health status of a patient in comparison of people of the same age.</rdfs:comment>
-        <rdfs:label xml:lang="en">Health status comparison Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#HealthStatusComparisonRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#HealthStatusComparisonRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the MNA of the health status of a patient in comparison with other people of the same age, e.g. if a patient considers his health as good as the health of people of the same age, the score is 1.</rdfs:comment>
-        <rdfs:label xml:lang="en">Health status comparison rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#IndependentlyLivingAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#IndependentlyLivingAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#IndependentlyLivingRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the living status of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Independently living Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#IndependentlyLivingRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#IndependentlyLivingRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of living status in the Mini Nutritional Assessment (MNA), e.g. if the patient lives independently (not in a nursing home or hospital) the score in the MNA is 0.</rdfs:comment>
-        <rdfs:label xml:lang="en">Independently living Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#LossOfAppetiteAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#LossOfAppetiteAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#LossOfAppetiteRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the loss of appetite of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Loss of appetite Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#LossOfAppetiteRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#LossOfAppetiteRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating in the Mini Nutritional Assessment of the loss of appetite of a patient, e.g. if the patient has suffered of severe loss of appetite in the last three the score is 0.</rdfs:comment>
-        <rdfs:label xml:lang="en">Loss of appetite Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MACAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MACAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#AnthropometricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MACRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasMAC"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the Mid Arm Circumference (MAC) of a Patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Mid Arm Circumference (MAC) Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MACRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MACRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasMAC"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#Interval"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the Mid Arm Circumference (MAC) in the Mini Nutritional Assessment (MNA).</rdfs:comment>
-        <rdfs:label xml:lang="en">Mid Arm Circumference (MAC) Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#hasQuantitativeValue"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#Interval"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the Mini Nutritional Assessment</rdfs:comment>
-        <rdfs:label xml:lang="en">Mini Nutritional Assessment Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating">
-        <rdfs:comment xml:lang="en">This class represent the rating scales used in the Mini Nutritional Assessment.</rdfs:comment>
-        <rdfs:label xml:lang="en">MNA Tests Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MalnutritionalProblemsAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MalnutritionalProblemsAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#SelfAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MalnutritionalProblemsRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the malnutritional problems of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Malnutritional Problems Self Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MalnutritionalProblemsRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MalnutritionalProblemsRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating in the MNA of the Malnutritional Problems, e.g. if the patient has suffered of malnutrition, the score is 0.</rdfs:comment>
-        <rdfs:label xml:lang="en">Malnutritional Problems Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MiniNutritionalAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MiniNutritionalAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNARating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#BMIAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#CalfCircumferenceAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ConsumesAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FluidsConsumesAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FullMealsAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#HealthStatusComparisonAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#IndependentlyLivingAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#LossOfAppetiteAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MACAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MalnutritionalProblemsAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MobilityAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ModeOfFeedingAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NeuropsychologicalProblemsAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NumberOfDrugsAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PressureSoresOrSkinUlcersAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PsychologicalStressAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ServingsFruitsVegetablesAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#WeightLossAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Mini Nutritional Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MobilityAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MobilityAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MobilityRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the mobility of the patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Mobility assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MobilityRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MobilityRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the mobility of the patient in the Mini Nutritional Assessment (MNA), e.g. if is able to get out of the bed the score is 1.</rdfs:comment>
-        <rdfs:label xml:lang="en">Mobility rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ModeOfFeedingAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ModeOfFeedingAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ModeOfFeedingRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the mode of feeding of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Mode of feeding Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ModeOfFeedingRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ModeOfFeedingRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating in the MNA of the Mode of feeding of a Patient, e.g. if a patient needs of assistance for feeding, the score is 0.</rdfs:comment>
-        <rdfs:label xml:lang="en">Mode of feeding Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NeuropsychologicalProblemsAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NeuropsychologicalProblemsAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NeuropsychologicalProblemsRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing  the neuropsychological problems of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Neuropsychological problems Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NeuropsychologicalProblemsRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NeuropsychologicalProblemsRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the Neuropsychological problems in the Mini Nutritional Assessment (MNA), e.g. If the patient suffers of mild dementia the score is 1.</rdfs:comment>
-        <rdfs:label xml:lang="en">Neuropsychological problems Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NumberOfDrugsAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NumberOfDrugsAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#NumberOfDrugsAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the number of drugs taken per day by a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Number of drugs assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PressureSoresOrSkinUlcersAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PressureSoresOrSkinUlcersAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PressureSoresOrSkinUlcersRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the pressure sores or skin ulcers of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Pressure sores or skin ulcers Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PressureSoresOrSkinUlcersRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PressureSoresOrSkinUlcersRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the pressure sores and skin ulcers in the Mini Nutritional Assessment (MNA), e.g. if the patient has pressure sores or skin ulcers the score is 0.</rdfs:comment>
-        <rdfs:label xml:lang="en">Pressure sores or skin ulcers Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PsychologicalStressAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PsychologicalStressAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#GeneralAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PsychologicalStressAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing if the patient has suffered of psychological stress or acute disease in the past 3 months.</rdfs:comment>
-        <rdfs:label xml:lang="en">Psychological stress Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PsychologicalStressRating -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#PsychologicalStressRating">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the psychological stress or acute disease in the past 3 months in the MNA Assessment, e.g. If the patient has suffered of Psychological stress in the past 3 months the score in the MNA is 0.</rdfs:comment>
-        <rdfs:label xml:lang="en">Psychological stress Rating</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#SelfAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#SelfAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:label xml:lang="en">MNA Self Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ServingsFruitsVegetablesAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#ServingsFruitsVegetablesAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#DietaryAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#FruitConsumesRating"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing servings fruits and vegetables consumes of a Patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Servings Fruits Vegetables consumes Assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#WeightLoss -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#WeightLoss">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#MNATestsRating"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeightLoss"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#Interval"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The rating of the Weight Loss (in the last three months) in the Mini Nutritional Assessment.</rdfs:comment>
-        <rdfs:label xml:lang="en">Weight Loss</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/mna.owl#WeightLossAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#WeightLossAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#AnthropometricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cirs.owl#hasRating"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#WeightLoss"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/mna.owl#hasWeightLoss"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#QuantitativeValue"/>
-                            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/time.owl#Interval"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The action of assessing the loss of weight of a patient.</rdfs:comment>
-        <rdfs:label xml:lang="en">Weight Loss Assessment</rdfs:label>
-    </owl:Class>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.0="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+  <owl:Ontology rdf:about="https://w3id.org/MON/mna.owl">
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain quantity of weight loss in the last three month?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA if the patient lives (or doesn't live) independently?</j.0:coversRequirements>
+    <owl:imports rdf:resource="https://w3id.org/MON/cga.owl"/>
+    <j.0:coversRequirements xml:lang="en">Has a patient declined food intake due to loss of appetite? </j.0:coversRequirements>
+    <owl:imports rdf:resource="https://w3id.org/MON/measurement.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/medicationuse.owl"/>
+    <j.0:coversRequirements xml:lang="en">Does a certain patient usually take at least 1 serving of dairy products (milk, cheese, yogurt) per day?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which was the Calf circumference (in cm) of a patient at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which Mid-arm circumference (in cm) was of a patient at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which was the gravity of a patient neurological problems at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA if the patient has pressure sores or skin ulcers?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">How does a patient consider him/her health status in comparison with other people with the same age (not as good/does not know/as good/better)?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does a patient need of assistance in feeding? Is self-feed with some difficulties? Or, is self feed without any problems?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does the patient have pressure sores or skin ulcers?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does a certain patient usually take 2 or more servings of legumes or eggs per week?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which was the height (in cm) of a patient at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does a certain patient consume 2 or more servings of fruits or vegetables per day?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA if the patient takes (or doesn't take) more than 3 drugs or not?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain interval of Calf circumference values?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does a patient live independently?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score of a MNA mobility level?</j.0:coversRequirements>
+    <owl:imports rdf:resource="https://w3id.org/MON/cohabitationstatus.owl"/>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA associated with a level of gravity of neurological problems?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which are the mobility levels considered in the MNA?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain interval of Mid-arm circumference values?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the description of a level of gravity of neurological problems in the MNA?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA associated with a certain interval of BMI values?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA if the patient has 1/2 or 3 meals?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the description of a MNA mobility level?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">How many drugs does a patient take?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score in the MNA if the patient has (or not) suffered of psychological stress or acute disease in the last 3 months?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Has a patient suffered of psychological stress or acute disease?</j.0:coversRequirements>
+    <j.0:hasIntent xml:lang="en">To represent the results of the Mini Nutritional Assessment (MNA).</j.0:hasIntent>
+    <j.0:coversRequirements xml:lang="en">Which was the mobility of a patient at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does a patient view him/herself as having nutritional problems (major malnutrition/does not know/ no nutritional problems)? </j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">How much fluids does a patient consume per day?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which are the levels of gravity of neurological problems in the MNA?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which was the weight (in kg) of a patient at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">How many full meals does the patient eat daily?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Does a certain patient take meat, fisk or poultry every day?</j.0:coversRequirements>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MalnutritionalProblemsRating">
+    <rdfs:label xml:lang="en">Malnutritional Problems Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating in the MNA of the Malnutritional Problems, e.g. if the patient has suffered of malnutrition, the score is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FluidsConsumesAssessment">
+    <rdfs:label xml:lang="en">Fluids consumes Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the fluids consumes of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FluidsConsumesRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DietaryAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#WeightLoss">
+    <rdfs:label xml:lang="en">Weight Loss</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the Weight Loss (in the last three months) in the Mini Nutritional Assessment.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+              <rdf:Description rdf:about="https://w3id.org/MON/time.owl#Interval"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/mna.owl#hasWeightLoss"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#PressureSoresOrSkinUlcersAssessment">
+    <rdfs:label xml:lang="en">Pressure sores or skin ulcers Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the pressure sores or skin ulcers of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#PressureSoresOrSkinUlcersRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#GeneralAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#ServingsFruitsVegetablesAssessment">
+    <rdfs:label xml:lang="en">Servings Fruits Vegetables consumes Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing servings fruits and vegetables consumes of a Patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FruitConsumesRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DietaryAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#ModeOfFeedingRating">
+    <rdfs:label xml:lang="en">Mode of feeding Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating in the MNA of the Mode of feeding of a Patient, e.g. if a patient needs of assistance for feeding, the score is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FluidsConsumesRating">
+    <rdfs:label xml:lang="en">Fluids consumes Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating in the MNA of the fluid consumes of a patient, e.g. if a patient consumes more than 9 glasses of fluids per day, the score is 1.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#IndependentlyLivingAssessment">
+    <rdfs:label xml:lang="en">Independently living Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the living status of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#IndependentlyLivingRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#GeneralAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#PsychologicalStressRating">
+    <rdfs:label xml:lang="en">Psychological stress Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the psychological stress or acute disease in the past 3 months in the MNA Assessment, e.g. If the patient has suffered of Psychological stress in the past 3 months the score in the MNA is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#NeuropsychologicalProblemsRating">
+    <rdfs:label xml:lang="en">Neuropsychological problems Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the Neuropsychological problems in the Mini Nutritional Assessment (MNA), e.g. If the patient suffers of mild dementia the score is 1.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MACRating">
+    <rdfs:label xml:lang="en">Mid Arm Circumference (MAC) Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the Mid Arm Circumference (MAC) in the Mini Nutritional Assessment (MNA).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+              <rdf:Description rdf:about="https://w3id.org/MON/time.owl#Interval"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/mna.owl#hasMAC"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#CalfCircumferenceAssessment">
+    <rdfs:label xml:lang="en">Calf Circumference (CC) Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the Calf Circumference (CC) of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/mna.owl#hasCC"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#CCRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#AnthropometricAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#LossOfAppetiteRating">
+    <rdfs:label xml:lang="en">Loss of appetite Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating in the Mini Nutritional Assessment of the loss of appetite of a patient, e.g. if the patient has suffered of severe loss of appetite in the last three the score is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#CCRating">
+    <rdfs:label xml:lang="en">Calf Circumference (CC) Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the Calf Circumference (CC) in the Mini Nutritional Assessment (MNA).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+              <rdf:Description rdf:about="https://w3id.org/MON/time.owl#Interval"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/mna.owl#hasCC"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MobilityAssessment">
+    <rdfs:label xml:lang="en">Mobility assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the mobility of the patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MobilityRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#GeneralAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#LossOfAppetiteAssessment">
+    <rdfs:label xml:lang="en">Loss of appetite Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the loss of appetite of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#LossOfAppetiteRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DietaryAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#SelfAssessment">
+    <rdfs:label xml:lang="en">MNA Self Assessment</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNATestsRating">
+    <rdfs:label xml:lang="en">MNA Tests Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">This class represent the rating scales used in the Mini Nutritional Assessment.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#NumberOfDrugsAssessment">
+    <rdfs:label xml:lang="en">Number of drugs assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the number of drugs taken per day by a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#NumberOfDrugsAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#GeneralAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#ModeOfFeedingAssessment">
+    <rdfs:label xml:lang="en">Mode of feeding Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the mode of feeding of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#ModeOfFeedingRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DietaryAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#PsychologicalStressAssessment">
+    <rdfs:label xml:lang="en">Psychological stress Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing if the patient has suffered of psychological stress or acute disease in the past 3 months.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#PsychologicalStressAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#GeneralAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#GeneralAssessment">
+    <rdfs:label xml:lang="en">MNA General Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">This class represent the General Assessments of the Multi Nutritional Assessment (MNA).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#HealthStatusComparisonRating">
+    <rdfs:label xml:lang="en">Health status comparison rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the MNA of the health status of a patient in comparison with other people of the same age, e.g. if a patient considers his health as good as the health of people of the same age, the score is 1.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MobilityRating">
+    <rdfs:label xml:lang="en">Mobility rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the mobility of the patient in the Mini Nutritional Assessment (MNA), e.g. if is able to get out of the bed the score is 1.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DrugsPerDayRating">
+    <rdfs:label>Drugs per day Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the number of drugs taken by the patient per day in the Mini Nutritional Assessment (MNA), e.g. if the patient takes more than 3 drugs per day the score in the MNA is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#BMIRating">
+    <rdfs:label xml:lang="en">BMI Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the BMI in the Mini Nutritional Assessment.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+              <rdf:Description rdf:about="https://w3id.org/MON/time.owl#Interval"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/mna.owl#hasBMI"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#HealthStatusComparisonAssessment">
+    <rdfs:label xml:lang="en">Health status comparison Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the health status of a patient in comparison of people of the same age.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#HealthStatusComparisonRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#SelfAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#ConsumesAssessment">
+    <rdfs:label xml:lang="en">Consumes Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the consumes of a Patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/mna.owl#ConsumesRating"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DietaryAssessment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#ConsumesRating">
+    <rdfs:label xml:lang="en">Consumes Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating in the Mini Nutritional Assessment (MNA) of the consumes of a Patient, e.g. if two of the following three conditions are satisfied the score is 0.5: the patient consumes at least 1 serving of dairy products (milk, cheese, yogurt) per day, the patient takes 2 or more servings of legumes or eggs per week, the patient eats meat, fisk or poultry every day.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MalnutritionalProblemsAssessment">
+    <rdfs:label xml:lang="en">Malnutritional Problems Self Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the malnutritional problems of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#MalnutritionalProblemsRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#SelfAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#AnthropometricAssessment">
+    <rdfs:label xml:lang="en">MNA Anthropometric Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">This class represents the Anthropometric Assessments of the Mini Nutritional Assessment (MNA).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#PressureSoresOrSkinUlcersRating">
+    <rdfs:label xml:lang="en">Pressure sores or skin ulcers Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the pressure sores and skin ulcers in the Mini Nutritional Assessment (MNA), e.g. if the patient has pressure sores or skin ulcers the score is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#DietaryAssessment">
+    <rdfs:label xml:lang="en">MNA Dietary Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">This class represents the Dietary Assessment of the Mini Nutritional Assessment (MNA).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#BMIAssessment">
+    <rdfs:label xml:lang="en">BMI assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the BMI of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/mna.owl#hasWeight"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/mna.owl#hasHeight"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/mna.owl#hasBMI"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#BMIRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#AnthropometricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#NeuropsychologicalProblemsAssessment">
+    <rdfs:label xml:lang="en">Neuropsychological problems Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing  the neuropsychological problems of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#NeuropsychologicalProblemsRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#GeneralAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FullMealsRating">
+    <rdfs:label xml:lang="en">Full meals Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the number of full meals in the Mini Nutritional Assessment, e.g. if the patient eats 2 full meals daily, the score in the MNA is 1.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#IndependentlyLivingRating">
+    <rdfs:label xml:lang="en">Independently living Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of living status in the Mini Nutritional Assessment (MNA), e.g. if the patient lives independently (not in a nursing home or hospital) the score in the MNA is 0.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MACAssessment">
+    <rdfs:label xml:lang="en">Mid Arm Circumference (MAC) Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the Mid Arm Circumference (MAC) of a Patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/mna.owl#hasMAC"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#MACRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#AnthropometricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MNARating">
+    <rdfs:label xml:lang="en">Mini Nutritional Assessment Rating</rdfs:label>
+    <rdfs:comment xml:lang="en">The rating of the Mini Nutritional Assessment</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+              <rdf:Description rdf:about="https://w3id.org/MON/time.owl#Interval"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/measurement.owl#hasQuantitativeValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#WeightLossAssessment">
+    <rdfs:label xml:lang="en">Weight Loss Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the loss of weight of a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="https://w3id.org/MON/measurement.owl#QuantitativeValue"/>
+              <rdf:Description rdf:about="https://w3id.org/MON/time.owl#Interval"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/mna.owl#hasWeightLoss"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#WeightLoss"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#AnthropometricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FullMealsAssessment">
+    <rdfs:label xml:lang="en">Full meals Assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">The action of assessing the number of full meals eaten by a patient.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#FullMealsRating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#DietaryAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#FruitConsumesRating">
+    <rdfs:label xml:lang="en">The rating of the servings or fruits or vegetables consumes of a patient in the MNA, e.g. if the patient consumes 2 or more servings or fruits or vegetables per day the score is 1.</rdfs:label>
+    <rdfs:label xml:lang="en">Servings Fruit Vegetables consumes Rating</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#description"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/mna.owl#MNATestsRating"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/mna.owl#MiniNutritionalAssessment">
+    <rdfs:label xml:lang="en">Mini Nutritional Assessment</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#ConsumesAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#WeightLossAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#ServingsFruitsVegetablesAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#MACAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#MobilityAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#CalfCircumferenceAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#FullMealsAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#ModeOfFeedingAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#LossOfAppetiteAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#PsychologicalStressAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#MalnutritionalProblemsAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#MNARating"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cirs.owl#hasRating"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#HealthStatusComparisonAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#FluidsConsumesAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#NeuropsychologicalProblemsAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#BMIAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#NumberOfDrugsAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#PressureSoresOrSkinUlcersAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/mna.owl#IndependentlyLivingAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
-

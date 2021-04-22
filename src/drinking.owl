@@ -1,116 +1,56 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl/"
-     xml:base="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/activity.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#executesTask -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#executesTask"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#includesLiquid -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#includesLiquid">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#Drink"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#LiquidSubstance"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedSubstance -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedSubstance"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#Drink -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#Drink">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#includesLiquid"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/measurement.owl#hasQuantitativeValue"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#Drinking -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#Drinking">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#executesTask"/>
-                <owl:hasValue rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#DrinkingTask"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/activity.owl#Activity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasPatient"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#Drink"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#LiquidSubstance -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/drinking.owl#LiquidSubstance">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedSubstance"/>
-    </owl:Class>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://w3id.org/MON/drinking.owl">
+    <owl:imports rdf:resource="https://w3id.org/MON/measurement.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/activity.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://w3id.org/MON/drinking.owl#LiquidSubstance">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedSubstance"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/drinking.owl#Drink">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/measurement.owl#hasQuantitativeValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/drinking.owl#includesLiquid"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/drinking.owl#Drinking">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/drinking.owl#Drink"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/action.owl#hasPatient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/activity.owl#Activity"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="https://w3id.org/MON/activity.owl#DrinkingTask"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#executesTask"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/drinking.owl#includesLiquid">
+    <rdfs:range rdf:resource="https://w3id.org/MON/drinking.owl#LiquidSubstance"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/drinking.owl#Drink"/>
+  </owl:ObjectProperty>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
-

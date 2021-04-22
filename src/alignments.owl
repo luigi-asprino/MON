@@ -1,0 +1,71 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#colleagueOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/colleagueOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#parentOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/parentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#grandchildOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/grandchildOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#spouseOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/spouseOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#involvesAgent">
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#involvesAgent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#worksWith">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/worksWith"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#childOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/childOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#livesWith">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/livesWith"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#engagedTo">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/engagedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#Person">
+    <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Person"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#friendOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/friendOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#siblingOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/siblingOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
+    <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Action"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+    <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/healthrole.owl#hasHealthRole">
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Agent">
+    <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/healthrole.owl#HealthProfessionalRole">
+    <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#grandparentOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/grandparentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#hasParticipant">
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#lifePartnerOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/lifePartnerOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#executesTask">
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#executesTask"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://w3id.org/MON/person.owl#closeFriendOf">
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/relationship/closeFriendOf"/>
+  </rdf:Description>
+</rdf:RDF>

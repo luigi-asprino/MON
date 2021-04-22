@@ -1,94 +1,48 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#"
-     xml:base="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:spmsq="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl"/>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score associated with an answer of the SPMSQ?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which are the questions of the Short Portal Metal Status Questionnaire (SPMSQ)?</cpannotationschema:coversRequirements>
-        <cpannotationschema:hasIntent xml:lang="en">To represent the results of &apos;Short Portable Mental Status Questionnaire (SPMSQ)&apos;.</cpannotationschema:hasIntent>
-        <cpannotationschema:coversRequirements xml:lang="en">Which are the conditions under which an answer of a certain question is correct?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the total score of the SPMSQ at a certain time?</cpannotationschema:coversRequirements>
-        <cpannotationschema:coversRequirements xml:lang="en">Which is the score of a correct answer of a certain question?</cpannotationschema:coversRequirements>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#AnswerAssessment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#AnswerAssessment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An action with the aim of assessing an answer.</rdfs:comment>
-        <rdfs:label xml:lang="en">Answer assessment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#ShortPortableMentalStatusQuestionnaire -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#ShortPortableMentalStatusQuestionnaire">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#GeriatricAssessment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/clinicalact.owl#hasMember"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/spmsq.owl#AnswerAssessment"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/cga.owl#score"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An action with the aim of assessing the answer provided by a Patient to the SPMSQ questionnaire at a certain time.</rdfs:comment>
-        <rdfs:label xml:lang="en">Short portable mental status questionnaire</rdfs:label>
-    </owl:Class>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.0="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+  <owl:Ontology rdf:about="https://w3id.org/MON/spmsq.owl">
+    <j.0:coversRequirements xml:lang="en">Which is the score of a correct answer of a certain question?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the total score of the SPMSQ at a certain time?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which are the conditions under which an answer of a certain question is correct?</j.0:coversRequirements>
+    <j.0:hasIntent xml:lang="en">To represent the results of 'Short Portable Mental Status Questionnaire (SPMSQ)'.</j.0:hasIntent>
+    <j.0:coversRequirements xml:lang="en">Which are the questions of the Short Portal Metal Status Questionnaire (SPMSQ)?</j.0:coversRequirements>
+    <j.0:coversRequirements xml:lang="en">Which is the score associated with an answer of the SPMSQ?</j.0:coversRequirements>
+    <owl:imports rdf:resource="https://w3id.org/MON/cga.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://w3id.org/MON/spmsq.owl#AnswerAssessment">
+    <rdfs:label xml:lang="en">Answer assessment</rdfs:label>
+    <rdfs:comment xml:lang="en">An action with the aim of assessing an answer.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/spmsq.owl#ShortPortableMentalStatusQuestionnaire">
+    <rdfs:label xml:lang="en">Short portable mental status questionnaire</rdfs:label>
+    <rdfs:comment xml:lang="en">An action with the aim of assessing the answer provided by a Patient to the SPMSQ questionnaire at a certain time.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/spmsq.owl#AnswerAssessment"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/clinicalact.owl#hasMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+  </owl:Class>
+  <rdf:Description>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    >1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
-

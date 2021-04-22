@@ -1,256 +1,171 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#"
-     xml:base="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:personalevents="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:action="http://www.ontologydesignpatterns.org/ont/mario/action.owl#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl">
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/event.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/pet.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl"/>
-        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#OfPerson -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#OfPerson">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-        <rdfs:label xml:lang="en">of person</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasEmployer -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasEmployer">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Employment"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
-        <rdfs:label xml:lang="en">has employer</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasPosition -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasPosition">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Employment"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Role"/>
-        <rdfs:label xml:lang="en">has position</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasSchool -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasSchool">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#School"/>
-        <rdfs:label xml:lang="en">has school</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasSpouse -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasSpouse">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Marriage"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-        <rdfs:comment xml:lang="en">The spouse of a marriage event.</rdfs:comment>
-        <rdfs:label xml:lang="en">has spouse</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#ownedPet -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#ownedPet">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#hasParticipant"/>
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PetOwnership"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/pet.owl#Pet"/>
-        <rdfs:label xml:lang="en">owned pet</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person">
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#School"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Employment -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Employment">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasEmployer"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasPosition"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Role"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#LivingInAPlace"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Marriage"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PetOwnership"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace"/>
-        <rdfs:label xml:lang="en">Employment</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#LivingInAPlace -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#LivingInAPlace">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Marriage"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PetOwnership"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace"/>
-        <rdfs:label xml:lang="en">Living in a Place</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Marriage -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Marriage">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasSpouse"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PetOwnership"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace"/>
-        <rdfs:label xml:lang="en">Marriage</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/event.owl#Event"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#OfPerson"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/person.owl#Person"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The events of a person&apos;s life history.</rdfs:comment>
-        <rdfs:label xml:lang="en">Personal event</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PetOwnership -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PetOwnership">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#ownedPet"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/pet.owl#Pet"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance"/>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace"/>
-        <rdfs:label xml:lang="en">Pet Ownership</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Role -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#Role">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label xml:lang="en">Role</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#School -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#School">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Agent"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#SchoolAttendance">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#hasSchool"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#School"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace"/>
-        <rdfs:label xml:lang="en">School attendance</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#VisitingAPlace">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/personalevents.owl#PersonalEvent"/>
-        <rdfs:label xml:lang="en">Visiting a Place</rdfs:label>
-    </owl:Class>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="https://w3id.org/MON/personalevents.owl">
+    <owl:imports rdf:resource="https://w3id.org/MON/person.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/pet.owl"/>
+    <owl:imports rdf:resource="https://w3id.org/MON/event.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#PersonalEvent">
+    <rdfs:label xml:lang="en">Personal event</rdfs:label>
+    <rdfs:comment xml:lang="en">The events of a person's life history.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <rdf:Description rdf:about="https://w3id.org/MON/person.owl#Person">
+            <owl:disjointWith>
+              <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#School"/>
+            </owl:disjointWith>
+          </rdf:Description>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#OfPerson"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/event.owl#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#VisitingAPlace">
+    <rdfs:label xml:lang="en">Visiting a Place</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#Employment">
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#SchoolAttendance"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasEmployer"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#PetOwnership"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#Role"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasPosition"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#LivingInAPlace"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#Marriage"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Employment</rdfs:label>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#VisitingAPlace"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#PetOwnership">
+    <rdfs:label xml:lang="en">Pet Ownership</rdfs:label>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#VisitingAPlace"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#SchoolAttendance"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/pet.owl#Pet"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#ownedPet"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#Marriage">
+    <rdfs:label xml:lang="en">Marriage</rdfs:label>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#VisitingAPlace"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#SchoolAttendance"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#PetOwnership"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasSpouse"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#School">
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#SchoolAttendance">
+    <rdfs:label xml:lang="en">School attendance</rdfs:label>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#VisitingAPlace"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/personalevents.owl#School"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasSchool"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#Role">
+    <rdfs:label xml:lang="en">Role</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://w3id.org/MON/personalevents.owl#LivingInAPlace">
+    <rdfs:label xml:lang="en">Living in a Place</rdfs:label>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#VisitingAPlace"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#SchoolAttendance"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#PetOwnership"/>
+    <owl:disjointWith rdf:resource="https://w3id.org/MON/personalevents.owl#Marriage"/>
+    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#ownedPet">
+    <rdfs:label xml:lang="en">owned pet</rdfs:label>
+    <rdfs:range rdf:resource="https://w3id.org/MON/pet.owl#Pet"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/personalevents.owl#PetOwnership"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasPosition">
+    <rdfs:label xml:lang="en">has position</rdfs:label>
+    <rdfs:range rdf:resource="https://w3id.org/MON/personalevents.owl#Role"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/personalevents.owl#Employment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasSpouse">
+    <rdfs:label xml:lang="en">has spouse</rdfs:label>
+    <rdfs:comment xml:lang="en">The spouse of a marriage event.</rdfs:comment>
+    <rdfs:range rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/personalevents.owl#Marriage"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#OfPerson">
+    <rdfs:label xml:lang="en">of person</rdfs:label>
+    <rdfs:range rdf:resource="https://w3id.org/MON/person.owl#Person"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/personalevents.owl#PersonalEvent"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasSchool">
+    <rdfs:label xml:lang="en">has school</rdfs:label>
+    <rdfs:range rdf:resource="https://w3id.org/MON/personalevents.owl#School"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/personalevents.owl#SchoolAttendance"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://w3id.org/MON/personalevents.owl#hasEmployer">
+    <rdfs:label xml:lang="en">has employer</rdfs:label>
+    <rdfs:range rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+    <rdfs:domain rdf:resource="https://w3id.org/MON/personalevents.owl#Employment"/>
+    <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
+  </owl:ObjectProperty>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
-

@@ -14,6 +14,15 @@
         <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
         <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Affordance.png"/>
+        <dc:description xml:lang="en">The Affordance ontology is one of the modules of the MARIO Ontology Network (MON).
+The Affordance Ontology extends the classical notion of affordance (Gibson 1977), which suggests that the physical objects (e.g., a door) offer the opportunity of performing an action (e.g., open). 
+This ontology is designed by relying on the assumption that, not only physical objects, but also complex situations (e.g. the user want to listen to some music) afford actions (e.g. play music). A complex situation can be seen as the fulfilment at a certain time of certain conditions. These conditions may involve temporal aspects (e.g. lunchtime may afford the task remember the user to take the pills), the perception of certain physical objects, the receiving of a command (e.g. I want to listen to some music), or even the existence of certain state-of-affairs (e.g. the situation the user is sitting on a chair for a long while may afford the task entertain the user).
+
+References
+
+- L. Asprino, A. G. Nuzzolese, A. Russo, A. Gangemi, V. Presutti, S. Nolfi,An  ontology  design  pattern  for  supporting  behaviour  arbitration  in  cog-nitive agents, in:  K. Hammar, P. Hitzler, A. Krisnadhi, A.   Lawrynowicz,A. G. Nuzzolese, M. Solanki (Eds.), Advances in Ontology Design and Pat-1170terns, IOS Press, 2017, pp. 85–95
+
+- MARIO Ontology Network (MON) https://w3id.org/MON</dc:description>
         <dc:title xml:lang="en">Affordance Ontology</dc:title>
         <j.0:coversRequirements xml:lang="en">What are the tasks afforded in a certain situation?</j.0:coversRequirements>
         <j.0:coversRequirements xml:lang="en">Which is the strength of an Affordance?</j.0:coversRequirements>

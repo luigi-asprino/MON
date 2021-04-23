@@ -22,12 +22,17 @@ If you use one the ontologies of the network in your project, **please** let us 
 ## References 
 
 1 . L. Asprino, A.G. Nuzzolese, A. Russo, A. Gangemi, V. Presutti and S. Nolfi. An Ontology Design Pattern for supporting behaviour arbitration in cognitive agents. In: Proceedings of the 7th Workshop on Ontology and Semantic Web Patterns co-located with ISWC 2016 (WOP 2016). Kobe, Japan, 2016 [PDF](http://ontologydesignpatterns.org/wiki/images/0/03/WOP2016_paper_13.pdf)
+
 2. A. Gangemi, M. Alam, L. Asprino, V. Presutti and D. Reforgiato Recupero. Framester: A Wide Coverage Linguistic Linked Data Hub. In: Proceedings of the 20th International Conference on Knowledge Engineering and Knowledge Management (EKAW 2016). Bologna, Italy, 2016 DOI: [10.1007/978-3-319-49004-5_16](https://doi.org/10.1007/978-3-319-49004-5_16)
-3. 3. L. Asprino, A. Gangemi, A.G. Nuzzolese, V. Presutti, D. Reforgiato Recupero and A. Russo. Autonomous Comprehensive Geriatric Assessment. In: Proceedings of the 1st International Workshop on Application of Semantic Web technologies in Robotics co-located with 14th ESWC (ANSWER 2017), Portoroz, Slovenia, 2017 [PDF](http://ceur-ws.org/Vol-1935/paper-05.pdf)
+
+3. L. Asprino, A. Gangemi, A.G. Nuzzolese, V. Presutti, D. Reforgiato Recupero and A. Russo. Autonomous Comprehensive Geriatric Assessment. In: Proceedings of the 1st International Workshop on Application of Semantic Web technologies in Robotics co-located with 14th ESWC (ANSWER 2017), Portoroz, Slovenia, 2017 [PDF](http://ceur-ws.org/Vol-1935/paper-05.pdf)
+
 4. L. Asprino, A. Gangemi, A.G. Nuzzolese, V. Presutti and A. Russo. Knowledge-driven Support for Reminiscence on Companion Robots. In: Proceedings of the 1st International Workshop on Application of Semantic Web technologies in Robotics co-located with 14th ESWC (ANSWER 2017), Portoroz, Slovenia, 2017  [PDF](http://ceur-ws.org/Vol-1935/paper-06.pdf)
+
 5. L. Asprino, A. Gangemi, A.G. Nuzzolese, V. Presutti and A. Russo. A Knowledge Management System for Assistive Robotics. In: Proceedings of the 1st International Workshop on Application of Semantic Web technologies in Robotics co-located with 14th ESWC (ANSWER 2017), Portoroz, Slovenia, 2017 [PDF](http://ceur-ws.org/Vol-1935/paper-07.pdf)
+
 6. L.Asprino. Engineering Background Knowledge for Social Robots. Studies on the Semantic Web. IOS Press DOI:  [10.3233/SSW48](https://doi.org/10.3233/SSW48)
-7. 
+
 ## License
 
 The MARIO Ontology Network is distributed under license [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) 

@@ -9,6 +9,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/action.owl">
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Action.png"/>
         <dc:description xml:lang="en">The MON’s Action module is meant to implement the Task Execution &lt;a href=&quot;http://ontologydesignpatterns.org/wikiSubmissions:TaskExecution&quot;&gt;Ontology Design Pattern&lt;/a&gt;. 
 This module allows to keep track of the actions performed either by the robot or by its users. 
 Actions execute and are classified by tasks. 

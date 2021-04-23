@@ -43,6 +43,11 @@ X is a social robot able to entertain its user by playing music. X can play what
 Therefore, if the the user wants to listen to some music and the battery is not in critical level, X accommodates the user&apos;s request.
 Otherwise, if the battery is in critical level, then X go recharging itself.
 &lt;pre&gt;
+
+@prefix aff: &lt;https://w3id.org/MON/affordance.owl#&gt; .
+@prefix action: &lt;https://w3id.org/MON/action.owl#&gt; .
+@prefix dul: &lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&gt; .
+
 :UserWantsToListenToSomeMusic a dul:Description .
 
 :BatteryInCritalLevel a dul:Description .

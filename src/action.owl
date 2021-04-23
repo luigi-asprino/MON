@@ -9,7 +9,36 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/action.owl">
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:description xml:lang="en">The MON’s Action module is meant to implement the Task Execution &lt;a href=&quot;http://ontologydesignpatterns.org/wikiSubmissions:TaskExecution&quot;&gt;Ontology Design Pattern&lt;/a&gt;. 
+This module allows to keep track of the actions performed either by the robot or by its users. 
+Actions execute and are classified by tasks. 
+The class &lt;tt&gt;action:Task&lt;/tt&gt; aims at collecting all the behaviors of the robot. 
+The Action module also defines a class named &lt;tt&gt;action:App&lt;/tt&gt; which specializes Task and encloses all the apps made available by the robot.</dc:description>
+        <dc:title xml:lang="en">Action Ontology</dc:title>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
     
 
 
@@ -39,6 +68,7 @@
     <!-- https://w3id.org/MON/action.owl#executesTask -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/action.owl#executesTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#executesTask"/>
         <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Action"/>
         <rdfs:range rdf:resource="https://w3id.org/MON/action.owl#Task"/>
         <rdfs:comment xml:lang="en">A relation between an action and the executed task, e.g. &apos;putting some water in a pot and putting the pot on a fire until the water starts bubbling&apos; executes the task &apos;boiling&apos;.</rdfs:comment>
@@ -47,10 +77,22 @@
     
 
 
+    <!-- https://w3id.org/MON/action.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/action.owl#hasParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Task"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter"/>
+        <rdfs:comment xml:lang="en">It associates the Task with its parameters.</rdfs:comment>
+        <rdfs:label xml:lang="en">has parameter</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/MON/action.owl#hasParticipant -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/action.owl#hasParticipant">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant"/>
         <rdfs:comment xml:lang="en">The participant to a certain Action.</rdfs:comment>
         <rdfs:label xml:lang="en">has participant</rdfs:label>
     </owl:ObjectProperty>
@@ -160,6 +202,16 @@
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
         <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
         <rdfs:label xml:lang="en">Behavior</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#TaskParameter -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/action.owl#TaskParameter">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter"/>
+        <rdfs:comment xml:lang="en">A parameter of a behavior.</rdfs:comment>
+        <rdfs:label xml:lang="en">Behavior parameter</rdfs:label>
     </owl:Class>
     
 

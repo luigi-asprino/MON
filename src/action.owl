@@ -82,7 +82,7 @@ The Action module also defines a class named &lt;tt&gt;action:App&lt;/tt&gt; whi
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/action.owl#hasParameter">
         <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
         <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Task"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/action.owl#TaskParameter"/>
         <rdfs:comment xml:lang="en">It associates the Task with its parameters.</rdfs:comment>
         <rdfs:label xml:lang="en">has parameter</rdfs:label>
     </owl:ObjectProperty>

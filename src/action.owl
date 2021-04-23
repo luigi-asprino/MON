@@ -10,7 +10,7 @@
     <owl:Ontology rdf:about="https://w3id.org/MON/action.owl">
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
         <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Action.png"/>
-        <dc:description xml:lang="en">The MON’s Action module is meant to implement the Task Execution &lt;a href=&quot;http://ontologydesignpatterns.org/wiki/Submissions:TaskExecution&quot;&gt;Ontology Design Pattern&lt;/a&gt;. 
+        <dc:description xml:lang="en">The MON’s Action module is meant to implement the  &lt;a href=&quot;http://ontologydesignpatterns.org/wiki/Submissions:TaskExecution&quot;&gt;Task Execution Ontology Design Pattern&lt;/a&gt;. 
 This module allows to keep track of the actions performed either by the robot or by its users. 
 Actions execute and are classified by tasks. 
 The class &lt;tt&gt;action:Task&lt;/tt&gt; aims at collecting all the behaviors of the robot.</dc:description>

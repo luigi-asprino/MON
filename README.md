@@ -16,7 +16,7 @@ TBD
 
 ## Tracking the usage
 
-Tracking the usage of an ontology allows to measure the impact of the work.
+Tracking the usage of an ontology is crucial for allowing us to measure the impact of the work.
 If you use one the ontologies of the network in your project, **please** let us know it by opening an issue.
 
 ## References 

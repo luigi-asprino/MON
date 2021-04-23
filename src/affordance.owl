@@ -45,9 +45,9 @@ Therefore, if the the user wants to listen to some music and the battery is not 
 Otherwise, if the battery is in critical level, then X go recharging itself.
 
 &lt;pre&gt;
-@prefix aff: &amp;#60;https://w3id.org/MON/affordance.owl#&amp;#60; .
-@prefix action: &amp;#60;https://w3id.org/MON/action.owl#&amp;#60; .
-@prefix dul: &amp;#60;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&amp;#60; .
+@prefix aff: &amp;#60;https://w3id.org/MON/affordance.owl#&amp;#62; .
+@prefix action: &amp;#60;https://w3id.org/MON/action.owl#&amp;#62; .
+@prefix dul: &amp;#60;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&amp;#62; .
 
 :UserWantsToListenToSomeMusic a dul:Description .
 

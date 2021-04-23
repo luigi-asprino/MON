@@ -13,7 +13,19 @@
         <dc:description xml:lang="en">The MON’s Action module is meant to implement the  &lt;a href=&quot;http://ontologydesignpatterns.org/wiki/Submissions:TaskExecution&quot;&gt;Task Execution Ontology Design Pattern&lt;/a&gt;. 
 This module allows to keep track of the actions performed either by the robot or by its users. 
 Actions execute and are classified by tasks. 
-The class &lt;tt&gt;action:Task&lt;/tt&gt; aims at collecting all the behaviors of the robot.</dc:description>
+The class &lt;tt&gt;action:Task&lt;/tt&gt; aims at collecting all the behaviors of the robot.
+
+&lt;b&gt;Example of Usage&lt;/b&gt;
+
+We provide an example of usage of the Action ontology for specifying the following scenario.
+X is a social robot can entertain its users by ​playing music, showing videos or telling jokes.
+On 23 April 2015 at 3pm, X played some music for Monica.
+
+&lt;pre&gt;
+@prefix action: &amp;#60;https://w3id.org/MON/action.owl&amp;#62;
+
+
+&lt;/pre&gt;</dc:description>
         <dc:title xml:lang="en">Action Ontology</dc:title>
     </owl:Ontology>
     

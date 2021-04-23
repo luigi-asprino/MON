@@ -38,15 +38,16 @@ This can be achieved by assigning to (battery in critical level, recharge) a str
 - MARIO Ontology Network (MON) https://w3id.org/MON
 
 &lt;b&gt;Example of Usage&lt;/b&gt;
+
 We provide an example of usage of the Affordance ontology for specifying the following scenario.
 X is a social robot able to entertain its user by playing music. X can play whatever musical genre the user likes and whenever the user wants to, unless its battery is in critical level.
 Therefore, if the the user wants to listen to some music and the battery is not in critical level, X accommodates the user&apos;s request.
 Otherwise, if the battery is in critical level, then X go recharging itself.
-&lt;pre&gt;
 
-@prefix aff: &lt;https://w3id.org/MON/affordance.owl#&gt; .
-@prefix action: &lt;https://w3id.org/MON/action.owl#&gt; .
-@prefix dul: &lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&gt; .
+&lt;pre&gt;
+@prefix aff: &amp;#60;https://w3id.org/MON/affordance.owl#&amp;#60; .
+@prefix action: &amp;#60;https://w3id.org/MON/action.owl#&amp;#60; .
+@prefix dul: &amp;#60;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#&amp;#60; .
 
 :UserWantsToListenToSomeMusic a dul:Description .
 

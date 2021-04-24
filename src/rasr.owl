@@ -12,7 +12,6 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/RASR/">
         <owl:imports rdf:resource="https://kadegraaf.nl/oce-ontology.owl"/>
-        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/rasr.png"/>
         <dc:description xml:lang="en">This ontology extends &lt;a href=&quot;https://kadegraaf.nl/oce-ontology.owl&quot;&gt;ocè ontology&lt;/a&gt; for establishing a vocabulary for specifying software architectures of Social Robots.
 The reference architecture on which this ontology relies on is depicted in the following figure
 

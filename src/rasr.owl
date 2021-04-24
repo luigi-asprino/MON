@@ -64,8 +64,8 @@ The reference architecture on which this ontology relies on has been introduced 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/rasr.owl#includes">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#compromises_of"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:domain rdf:resource="https://w3id.org/MON/rasr.owl#Subsystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/rasr.owl#Component"/>
         <rdfs:label xml:lang="en">includes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -75,8 +75,8 @@ The reference architecture on which this ontology relies on has been introduced 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/rasr.owl#provides">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#component_offers_interface"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+        <rdfs:domain rdf:resource="https://w3id.org/MON/rasr.owl#Component"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">provides</rdfs:label>
     </owl:ObjectProperty>
     

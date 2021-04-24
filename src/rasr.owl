@@ -1,14 +1,529 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://w3id.org/MON/RASR/"
      xml:base="https://w3id.org/MON/RASR/"
+     xmlns:C="https://w3id.org/MON/RASR/Component:"
+     xmlns:L="https://w3id.org/MON/RASR/Layer:"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oce="http://www.semanticweb.org/ontologies/2011/5/Ontology1308582601209.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/RASR/">
-        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2011/5/Ontology1308582601209.owl"/>
+        <owl:imports rdf:resource="https://kadegraaf.nl/oce-ontology.owl"/>
+        <dc:title xml:lang="en">RASR Ontology</dc:title>
+        <dc:title xml:lang="en">This ontology extends &lt;a href=&quot;https://kadegraaf.nl/oce-ontology.owl&quot;&gt;ocè ontology&lt;/a&gt; for establishing a vocabulary for specifying software architectures of Social Robots.
+
+&lt;b&gt;References&lt;/b&gt;
+
+- L.Asprino, P. Ciancarini, A. G. Nuzzolese, V. Presutti and A.Russo. A Reference Software Architecture for Social Robots. (&lt;a href=&quot;https://arxiv.org/abs/2007.04933&quot;&gt;preprint&lt;/a&gt;)</dc:title>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/RASR/includes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/RASR/includes">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#compromises_of"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/providesInterface -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/RASR/providesInterface">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#component_offers_interface"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:Behavior -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:Behavior">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:BehaviorControlInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:BehaviorManager -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:BehaviorManager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:BehaviorScheduler -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:BehaviorScheduler">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:InstallBehaviorInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:ConvolutedCapabilityManager -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:ConvolutedCapabilityManager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:RegisterModuleInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:ConvolutedCapabilityModule -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:ConvolutedCapabilityModule">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:ConvolutedCababilityModuleInteface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:HCIManager -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:HCIManager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:GUIManagerInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:HotDeployManager -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:HotDeployManager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:InstallModuleInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:KnowledgeBase -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:KnowledgeBase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:CreateReadUpdateDeleteOnKnowledgeBaseInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:ObjectOntologyMappingManager -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:ObjectOntologyMappingManager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:GenerateObjectOntologyMappingModuleInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:ObjectOntologyMappingMappingModule -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:ObjectOntologyMappingMappingModule">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:CreateReadUpdateDeleteInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:PerceptionAndMotionController -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:PerceptionAndMotionController">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:PerceptionAndMotionControllerInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:SemanticBus -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:SemanticBus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:PubSubInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:Speech2Text -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:Speech2Text">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:S2TInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Component:Text2Speech -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Component:Text2Speech">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:T2SInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Inferface:InstallBehaviorInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Inferface:InstallBehaviorInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:BehaviorControlInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:BehaviorControlInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:ConvolutedCababilityModuleInteface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:ConvolutedCababilityModuleInteface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:CreateReadUpdateDeleteInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:CreateReadUpdateDeleteInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:CreateReadUpdateDeleteOnKnowledgeBaseInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:CreateReadUpdateDeleteOnKnowledgeBaseInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:GUIManagerInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:GUIManagerInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:GenerateObjectOntologyMappingModuleInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:GenerateObjectOntologyMappingModuleInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:InstallBehaviorInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:InstallBehaviorInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:InstallModuleInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:InstallModuleInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:PerceptionAndMotionControllerInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:PerceptionAndMotionControllerInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:PubSubInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:PubSubInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:RegisterModuleInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:RegisterModuleInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:S2TInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:S2TInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:T2SInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:T2SInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Interface:TopicManagementInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Interface:TopicManagementInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:Behaviors -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:Behaviors">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/providesInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Interface:BehaviorControlInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:Capabilities -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:Capabilities">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/includes"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:ConvolutedCapabilityModule"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:HCIManager"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:PerceptionAndMotionController"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:Speech2Text"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:Text2Speech"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:HotDeploySupport -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:HotDeploySupport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/includes"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:BehaviorManager"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:ConvolutedCapabilityManager"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:HotDeployManager"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/RASR/Component:ObjectOntologyMappingManager"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:KnowledgeBase -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:KnowledgeBase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/includes"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Component:KnowledgeBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:ObjectOntologyMappingAPI -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:ObjectOntologyMappingAPI">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/includes"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Component:ObjectOntologyMappingMappingModule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:SemanticBus -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:SemanticBus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/RASR/includes"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/RASR/Component:SemanticBus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/RASR/Layer:SemanticBusAPI -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/RASR/Layer:SemanticBusAPI">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Subsystem"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/RASR/rasr -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/MON/RASR/rasr">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2010/10/Ontology1288790966584.owl#Architecture"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 

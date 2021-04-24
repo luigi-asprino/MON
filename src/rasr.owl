@@ -12,14 +12,15 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/rasr.owl">
         <owl:imports rdf:resource="https://kadegraaf.nl/oce-ontology.owl"/>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/RASROntology.png"/>
         <dc:description xml:lang="en">This ontology extends &lt;a href=&quot;https://kadegraaf.nl/oce-ontology.owl&quot;&gt;ocè ontology&lt;/a&gt; for establishing a vocabulary for specifying software architectures of Social Robots.
-The reference architecture on which this ontology relies on is depicted in the following figure
+The reference architecture on which this ontology relies on has been introduced in [1]. The UML component diagram of the architecture is depicted in the following figure
 
 &lt;img src=&quot;https://raw.githubusercontent.com/luigi-asprino/MON/main/src/rasr.png&quot; /&gt;
 
 &lt;b&gt;References&lt;/b&gt;
 
-- L.Asprino, P. Ciancarini, A. G. Nuzzolese, V. Presutti and A.Russo. A Reference Software Architecture for Social Robots. (&lt;a href=&quot;https://arxiv.org/abs/2007.04933&quot;&gt;preprint&lt;/a&gt;)</dc:description>
+[1] L.Asprino, P. Ciancarini, A. G. Nuzzolese, V. Presutti and A.Russo. A Reference Software Architecture for Social Robots. (&lt;a href=&quot;https://arxiv.org/abs/2007.04933&quot;&gt;preprint&lt;/a&gt;)</dc:description>
         <dc:title xml:lang="en">RASR Ontology</dc:title>
     </owl:Ontology>
     

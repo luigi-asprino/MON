@@ -158,7 +158,7 @@ The reference architecture on which this ontology relies on has been introduced 
     <!-- https://w3id.org/MON/rasr.owl#Component:BehaviorScheduler -->
 
     <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Component:BehaviorScheduler">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Component"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Component:Behavior"/>
         <rdfs:comment xml:lang="en">A Behavior Scheduler is a special Behavior that actively coordinates the other Behaviors and manages the functional capabilities of the robot. Specifically, the Behavior Scheduler is responsible for: (i) Processing incoming data/events and reasoning over the actual state and available knowledge in order to detect situations that require to activate a Behavior; (ii) Coordinating, scheduling and prioritizing Behavior execution; (iii) Activating, suspending, resuming and terminating Behaviors, as a result of a continuous decision making process; (iv) Monitoring Behavior executions, to detect successful Behavior completions as well as abnormal terminations, failures and exceptions.</rdfs:comment>
         <rdfs:label xml:lang="en">Behavior Scheduler</rdfs:label>
     </owl:Class>

@@ -9,7 +9,32 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/time.owl">
         <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
-        <dc:description xml:lang="en">This ontology provides a vocabulary for expressing time.</dc:description>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Time.png"/>
+        <dc:description xml:lang="en">This ontology provides a vocabulary for expressing time. It is a simplified version of the W3C&apos;s Time Ontology.
+
+&lt;b&gt;Example Of Usage&lt;/b&gt;
+
+Representing a day, e.g. April 23 2015, as an interval.
+
+&lt;pre&gt;
+@prefix time: &amp;#60;https://w3id.org/MON/time.owl#&amp;#62;
+
+:April23015Beg a time:Instant ;
+   time:inXSDDateTime &quot;2015-04-23T00:00:10+02:00&quot; .
+
+
+:April23015End a time:Instant ;
+   time:inXSDDateTime &quot;2015-04-23T23:59:10+02:00&quot; .
+
+:April23015 a time:Interval ;
+   time:hasBeginning :April23015Beg ;
+   time:hasEnd  :April23015End .
+&lt;/pre&gt;
+
+
+&lt;b&gt;References&lt;/b&gt;
+
+- W3C&apos;s Time Ontology https://www.w3.org/TR/owl-time/</dc:description>
         <dc:title xml:lang="en">Time Ontology</dc:title>
     </owl:Ontology>
     

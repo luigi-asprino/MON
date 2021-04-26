@@ -19,11 +19,34 @@ The class &lt;tt&gt;action:Task&lt;/tt&gt; aims at collecting all the behaviors 
 
 We provide an example of usage of the Action ontology for specifying the following scenario.
 X is a social robot can entertain its users by ​playing music, showing videos or telling jokes.
-On 23 April 2015 at 3pm, X played some music for Monica.
+On 23 April 2015 from 3pm to 4p,, X played some music for Monica.
 
 &lt;pre&gt;
 @prefix action: &amp;#60;https://w3id.org/MON/action.owl&amp;#62;
+@prefix time: &amp;#60;https://w3id.org/MON/time.owl#&amp;#62;
 
+:April23015Beg a time:Instant ;
+   time:inXSDDateTime &quot;2015-04-23T15:00:00+02:00&quot; .
+
+
+:April23015End a time:Instant ;
+   time:inXSDDateTime &quot;2015-04-23T16:00:00+02:00&quot; .
+
+:April23015 a time:Interval ;
+   time:hasBeginning :April23015Beg ;
+   time:hasEnd  :April23015End .
+
+:MusicBehavior a action:Task .
+
+:X a action:Agent .
+
+:Monica a action:Agent .
+
+:PlayMusicForMonica a action:Action ;
+  time:atTime :April23015 ;
+  action:byAgent :X ;
+  action:executesTask :MusicBehavior ;
+  action:hasParticipant :Monica .
 
 &lt;/pre&gt;</dc:description>
         <dc:title xml:lang="en">Action Ontology</dc:title>

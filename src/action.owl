@@ -203,6 +203,7 @@ On 23 April 2015 at 3pm, X played some music for Monica.
     <owl:Class rdf:about="https://w3id.org/MON/action.owl#Task">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
         <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">Any EventType that aims at releasing a goal.</rdfs:comment>
         <rdfs:label xml:lang="en">Behavior</rdfs:label>
     </owl:Class>
     

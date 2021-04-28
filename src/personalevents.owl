@@ -30,7 +30,7 @@ Following the Neo-Davidsonian[1] event semantics, this class subsumes six event 
 	
 	&lt;li&gt; &lt;tt&gt;VisitingAPlace&lt;/tt&gt; the fact of visiting a place.&lt;/li&gt;
 	
-&lt;/uli&gt;
+&lt;/ul&gt;
 These six event types support the application for delivering the reminiscence therapy presented in [2].
 Additional event types can be also gathered from Framester&apos;s Frames [3].
 In fact, a frame is a stereotyped situation that could used to model information about events of a person&apos;s life.

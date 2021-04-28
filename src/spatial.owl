@@ -1,53 +1,129 @@
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://w3id.org/MON/spatial.owl">
-    <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
-  </owl:Ontology>
-  <owl:Class rdf:about="https://w3id.org/MON/action.owl#Agent">
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/MON/spatial.owl#"
+     xml:base="https://w3id.org/MON/spatial.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/MON/spatial.owl">
+        <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
+        <dc:description xml:lang="en">The MON&apos;s Spatial  provides classes and properties for specifying the knowledge about spatial things (i.e. anything with a spatial extent) and places (e.g. cities).
+These concepts are used for specifying the generic locations for physical objects.
+This ontology module is an implementation of the  &lt;a href=&quot;http://ontologydesignpatterns.org/wiki/Submissions:Place&quot;&gt;Ontology Design Pattern Place&lt;/a&gt;.</dc:description>
+        <dc:title xml:lang="en">Spatial Ontology</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/spatial.owl#hasPlace -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/spatial.owl#hasPlace">
+        <rdfs:range rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <rdfs:label xml:lang="en">has place</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/MON/spatial.owl#hasResidence -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/spatial.owl#hasResidence">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/spatial.owl#hasPlace"/>
+        <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/spatial.owl#Residence"/>
+        <rdfs:label xml:lang="en">has residence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Action -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
         <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-        <owl:disjointWith>
-          <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-        </owl:disjointWith>
-      </rdf:Description>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#City">
-    <rdfs:label xml:lang="en">City</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing">
-    <rdfs:label xml:lang="en">Spatial thing</rdfs:label>
-    <rdfs:comment xml:lang="en">Anything with spatial extent, i.e. size, shape, or position.</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#Residence">
-    <rdfs:label xml:lang="en">Residence</rdfs:label>
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://w3id.org/MON/spatial.owl#hasPlace">
-    <rdfs:label xml:lang="en">has place</rdfs:label>
-    <rdfs:range rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://w3id.org/MON/spatial.owl#hasResidence">
-    <rdfs:label xml:lang="en">has residence</rdfs:label>
-    <rdfs:range rdf:resource="https://w3id.org/MON/spatial.owl#Residence"/>
-    <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
-    <rdfs:subPropertyOf rdf:resource="https://w3id.org/MON/spatial.owl#hasPlace"/>
-  </owl:ObjectProperty>
-  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
-  </rdf:Description>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Agent -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/action.owl#Agent">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Task -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/spatial.owl#City -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#City">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <rdfs:label xml:lang="en">City</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/spatial.owl#Residence -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#Residence">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+        <rdfs:label xml:lang="en">Residence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/spatial.owl#SpatialThing -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">Anything with spatial extent, i.e. size, shape, or position.</rdfs:comment>
+        <rdfs:label xml:lang="en">Spatial thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/time.owl#TemporalEntity -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/time.owl#TemporalEntity"/>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

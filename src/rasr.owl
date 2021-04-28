@@ -146,7 +146,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:InstallBehaviorInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveBehaviorInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Behavior Manager is meant to install new Behaviors.</rdfs:comment>
@@ -220,7 +220,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:InstallModuleInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveModuleInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Hot Deploy Manager is the software component that effectively install new artefacts in the architecture.</rdfs:comment>
@@ -402,20 +402,20 @@ The reference architecture on which this ontology relies on has been introduced 
     
 
 
-    <!-- https://w3id.org/MON/rasr.owl#Interface:InstallBehaviorInterface -->
+    <!-- https://w3id.org/MON/rasr.owl#Interface:InstallRemoveBehaviorInterface -->
 
-    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:InstallBehaviorInterface">
+    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveBehaviorInterface">
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
-        <rdfs:label xml:lang="en">Install Behavior Interface</rdfs:label>
+        <rdfs:label xml:lang="en">Install/Remove Behavior Interface</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/MON/rasr.owl#Interface:InstallModuleInterface -->
+    <!-- https://w3id.org/MON/rasr.owl#Interface:InstallRemoveModuleInterface -->
 
-    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:InstallModuleInterface">
+    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveModuleInterface">
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
-        <rdfs:label xml:lang="en">Install Module Interface</rdfs:label>
+        <rdfs:label xml:lang="en">Install/Remove Module Interface</rdfs:label>
     </owl:Class>
     
 

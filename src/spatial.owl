@@ -9,6 +9,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/spatial.owl">
         <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Spatial.png"/>
         <dc:description xml:lang="en">The MON&apos;s Spatial  provides classes and properties for specifying the knowledge about spatial things (i.e. anything with a spatial extent) and places (e.g. cities).
 These concepts are used for specifying the generic locations for physical objects.
 This ontology module is an implementation of the  &lt;a href=&quot;http://ontologydesignpatterns.org/wiki/Submissions:Place&quot;&gt;Ontology Design Pattern Place&lt;/a&gt;.</dc:description>

@@ -16,21 +16,13 @@
         <dc:description xml:lang="en">The MON&apos;s Personal Events ontology provides a vocabulary for storing information about the main events of a person&apos;s life (e.g. Marriage, School attendance etc.).
 A &lt;tt&gt;PersonalEvent&lt;/tt&gt; is defined as an event related to a person.
 Following the Neo-Davidsonian[1] event semantics, this class subsumes six event types:
-&lt;ul&gt;
-
-	&lt;li&gt; &lt;tt&gt;Employment&lt;/tt&gt;  the fact of having a paid work;&lt;/li&gt;
-
-	&lt;li&gt; &lt;tt&gt;Marriage&lt;/tt&gt;  the fact of being married with some one;&lt;/li&gt;
+- &lt;tt&gt;Employment&lt;/tt&gt;  the fact of having a paid work;
+- &lt;tt&gt;Marriage&lt;/tt&gt;  the fact of being married with some one;	
+- &lt;tt&gt;Attendance&lt;/tt&gt; the fact of having attended a school;
+-  &lt;tt&gt;PetOwnership&lt;/tt&gt; the fact of owning a pet;
+- &lt;tt&gt;LivingInAPlace&lt;/tt&gt; the fact of living in a place;
+- &lt;tt&gt;VisitingAPlace&lt;/tt&gt; the fact of visiting a place.
 	
-	&lt;li&gt; &lt;tt&gt;Attendance&lt;/tt&gt; the fact of having attended a school;&lt;/li&gt;
-	
-	&lt;li&gt; &lt;tt&gt;PetOwnership&lt;/tt&gt; the fact of owning a pet;&lt;/li&gt;
-	
-	&lt;li&gt;&lt;tt&gt;LivingInAPlace&lt;/tt&gt; the fact of living in a place;&lt;/li&gt;
-	
-	&lt;li&gt; &lt;tt&gt;VisitingAPlace&lt;/tt&gt; the fact of visiting a place.&lt;/li&gt;
-	
-&lt;/ul&gt;
 These six event types support the application for delivering the reminiscence therapy presented in [2].
 Additional event types can be also gathered from Framester&apos;s Frames [3].
 In fact, a frame is a stereotyped situation that could used to model information about events of a person&apos;s life.

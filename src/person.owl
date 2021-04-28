@@ -13,6 +13,275 @@
         <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/spatial.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Person.png"/>
+        <dc:description xml:lang="en">A &lt;tt&gt;person:Person&lt;/tt&gt; is defined as an agent having a gender (i.e. an individual of the class &lt;tt&gt;person:Sex&lt;/tt&gt;), a residence (i.e. a &lt;tt&gt;spatial:Residence&lt;/tt&gt;), a birth place (i.e. a &lt;tt&gt;spatial:City&lt;/tt&gt;), and an hometown (i.e. a &lt;tt&gt;spatial:City&lt;/tt&gt;).
+Persons are specialized in  &lt;tt&gt;person:Male&lt;/tt&gt; (defined as the persons having &lt;tt&gt;person:Male&lt;/tt&gt; as value of the property &lt;tt&gt;person:hasGender&lt;/tt&gt;, note that &lt;tt&gt;person:Male&lt;/tt&gt; and &lt;tt&gt;person:Female&lt;/tt&gt; are defined both as classes and as individuals of the class &lt;tt&gt;person:Gender&lt;/tt&gt;.) and  &lt;tt&gt;person:Female&lt;/tt&gt; (defined as the persons having &lt;tt&gt;person:Female&lt;/tt&gt; as value of the property &lt;tt&gt;person:hasGender&lt;/tt&gt;).
+Interestingly, the ontology gives the opportunity of defining other genders.
+The ontology also defines a hierarchy of relations among persons. The hierarchy is inspired to &lt;a href=&quot;http://vocab.org/relationship/&quot;&gt;Relationship Vocabulary&lt;/a&gt;.
+The top property of this hierarchy is &lt;tt&gt;person:hasRelationshipWith&lt;/tt&gt; that relates two persons having any kind of relationship.
+This property is specialized by forty sub-properties (e.g. &lt;tt&gt;person:childOf&lt;/tt&gt;, &lt;tt&gt;person:worksWith&lt;/tt&gt;).
+The domain and range  of the sub-properties is also specialized where needed.
+For example the domain of &lt;tt&gt;person:brotherOf&lt;/tt&gt; is &lt;tt&gt;person:Male&lt;/tt&gt;, whereas  the domain of &lt;tt&gt;person:sisterOf&lt;/tt&gt; is &lt;tt&gt;person:Female&lt;/tt&gt;.
+The ontology also defines proper inverse relation among the properties of the hierarchy.
+For example, &lt;tt&gt;person:grandparentOf&lt;/tt&gt; is defined as the inverse of &lt;tt&gt;person:grandchildOf&lt;/tt&gt;.
+The relationship properties are reported in the following table.
+
+&lt;style type=&quot;text/css&quot;&gt;
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+&lt;/style&gt;
+&lt;table class=&quot;tg&quot;&gt;
+&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th class=&quot;tg-amwm&quot;&gt;Property&lt;/th&gt;
+    &lt;th class=&quot;tg-amwm&quot;&gt;Domain&lt;/th&gt;
+    &lt;th class=&quot;tg-amwm&quot;&gt;Range&lt;/th&gt;
+    &lt;th class=&quot;tg-amwm&quot;&gt;SubPropertyOf&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;auntOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;brotherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;siblingOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;childInLawOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;childOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;closeFriendOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;colleagueOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;cousinOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;daughterInLawOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;childInLawOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;daughterOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;childOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;engagedTo&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;fatherInLaw&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;parentInLaw&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;fatherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;parentOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;friendOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandchildOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;granddaughterOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandchildOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandfatherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandparentOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandmotherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandparentOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandparentOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandsonOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;grandchildOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;husbandOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;spouseOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;lifePartnerOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;livesWith&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;motherInLaw&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;parentInLaw&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;motherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;parentOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;nephewOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;nieceOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;parentInLaw&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;parentOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;siblingOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;sisterOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;siblingOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;sonInLawOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;childInLawOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;sonOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;childOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;spouseOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;stepfatherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;stepparentOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;stepmotherOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;stepparentOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;stepparentOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;uncleOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Male&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;wifeOf&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Female&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;spouseOf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;worksWith&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-7zrl&quot;&gt;Person&lt;/td&gt;
+    &lt;td class=&quot;tg-0lax&quot;&gt;hasRelationshipWith&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</dc:description>
         <dc:title xml:lang="en">Person Ontology</dc:title>
         <j.1:coversRequirements xml:lang="en">When were a person born?</j.1:coversRequirements>
     </owl:Ontology>

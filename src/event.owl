@@ -1,49 +1,115 @@
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://w3id.org/MON/event.owl">
-    <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
-    <owl:imports rdf:resource="https://w3id.org/MON/spatial.owl"/>
-  </owl:Ontology>
-  <owl:Class rdf:about="https://w3id.org/MON/event.owl#Event">
-    <rdfs:label xml:lang="en">Event</rdfs:label>
-    <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.</rdfs:comment>
-    <owl:disjointWith>
-      <owl:Class rdf:about="https://w3id.org/MON/time.owl#TemporalEntity"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <rdf:Description rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing">
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/MON/event.owl#"
+     xml:base="https://w3id.org/MON/event.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/MON/event.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+        <owl:imports rdf:resource="https://w3id.org/MON/spatial.owl"/>
+        <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:description rdf:resource="https://github.com/luigi-asprino/MON/blob/main/src/Event.png"/>
+        <dc:description xml:lang="en">The aim of the MON&apos;s Event module is to enable the robot to trace the relevant events it is involved in.
+An &lt;tt&gt;Event&lt;/tt&gt; relates a number of agents and entities involved in the event, the place where the event takes place and the time when the event occurs.</dc:description>
+        <dc:title>Event Ontology</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/event.owl#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/event.owl#hasEvent">
+        <rdfs:range rdf:resource="https://w3id.org/MON/event.owl#Event"/>
+        <rdfs:label>has event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Action -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/event.owl#Event"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Task -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/event.owl#Event"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/event.owl#Event -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/event.owl#Event">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/spatial.owl#hasPlace"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/time.owl#atTime"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
         <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-      </rdf:Description>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/time.owl#atTime"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="https://w3id.org/MON/spatial.owl#SpatialThing"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/spatial.owl#hasPlace"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/action.owl#hasParticipant"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://w3id.org/MON/event.owl#hasEvent">
-    <rdfs:label>has event</rdfs:label>
-    <rdfs:range rdf:resource="https://w3id.org/MON/event.owl#Event"/>
-  </owl:ObjectProperty>
-  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/event.owl#Event"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/event.owl#Event"/>
-  </rdf:Description>
+        <rdfs:comment xml:lang="en">Any physical, social, or mental process, event, or state.</rdfs:comment>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/spatial.owl#SpatialThing -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/spatial.owl#SpatialThing">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/time.owl#TemporalEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/time.owl#TemporalEntity"/>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

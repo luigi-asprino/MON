@@ -146,7 +146,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveBehaviorInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageBehaviorInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Behavior Manager is meant to install new Behaviors.</rdfs:comment>
@@ -172,7 +172,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:RegisterModuleInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageConvolutedCapabilityInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Convoluted Capability Manager is meant to install new Convoluted Capabilities in the Architecture.</rdfs:comment>
@@ -220,7 +220,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveModuleInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageModuleInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Hot Deploy Manager is the software component that effectively install new artefacts in the architecture.</rdfs:comment>
@@ -252,7 +252,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:GenerateObjectOntologyMappingModuleInterface"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageObjectOntologyMappingModuleInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Object Ontology Mapping Manager is meant to install new Object Ontology Mapping Module in the Architecture.</rdfs:comment>
@@ -384,15 +384,6 @@ The reference architecture on which this ontology relies on has been introduced 
     
 
 
-    <!-- https://w3id.org/MON/rasr.owl#Interface:GenerateObjectOntologyMappingModuleInterface -->
-
-    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:GenerateObjectOntologyMappingModuleInterface">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
-        <rdfs:label xml:lang="en">Generate Object Ontology Mapping Module Interface</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/MON/rasr.owl#Interface:HCIManagerInterface -->
 
     <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:HCIManagerInterface">
@@ -402,20 +393,38 @@ The reference architecture on which this ontology relies on has been introduced 
     
 
 
-    <!-- https://w3id.org/MON/rasr.owl#Interface:InstallRemoveBehaviorInterface -->
+    <!-- https://w3id.org/MON/rasr.owl#Interface:ManageBehaviorInterface -->
 
-    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveBehaviorInterface">
+    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:ManageBehaviorInterface">
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
-        <rdfs:label xml:lang="en">Install/Remove Behavior Interface</rdfs:label>
+        <rdfs:label xml:lang="en">Manage Behavior Interface</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/MON/rasr.owl#Interface:InstallRemoveModuleInterface -->
+    <!-- https://w3id.org/MON/rasr.owl#Interface:ManageConvolutedCapabilityInterface -->
 
-    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:InstallRemoveModuleInterface">
+    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:ManageConvolutedCapabilityInterface">
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
-        <rdfs:label xml:lang="en">Install/Remove Module Interface</rdfs:label>
+        <rdfs:label xml:lang="en">Manage Convoluted Capability Interface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/rasr.owl#Interface:ManageModuleInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:ManageModuleInterface">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
+        <rdfs:label xml:lang="en">Manage Module Interface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/rasr.owl#Interface:ManageObjectOntologyMappingModuleInterface -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:ManageObjectOntologyMappingModuleInterface">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
+        <rdfs:label xml:lang="en">Manage Object Ontology Mapping Module Interface</rdfs:label>
     </owl:Class>
     
 
@@ -434,15 +443,6 @@ The reference architecture on which this ontology relies on has been introduced 
     <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:PubSubInterface">
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Publish/Subscribe Interface</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/MON/rasr.owl#Interface:RegisterModuleInterface -->
-
-    <owl:Class rdf:about="https://w3id.org/MON/rasr.owl#Interface:RegisterModuleInterface">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
-        <rdfs:label xml:lang="en">Register Module Interface</rdfs:label>
     </owl:Class>
     
 

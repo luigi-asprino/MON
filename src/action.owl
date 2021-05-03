@@ -36,7 +36,7 @@ On 23 April 2015 from 3pm to 4p,, X played some music for Monica.
    time:hasBeginning :April23015Beg ;
    time:hasEnd  :April23015End .
 
-:MusicBehavior a action:Task .
+:MusicBehavior a action:Behavior .
 
 :X a action:Agent .
 
@@ -116,8 +116,8 @@ On 23 April 2015 from 3pm to 4p,, X played some music for Monica.
 
     <owl:ObjectProperty rdf:about="https://w3id.org/MON/action.owl#hasParameter">
         <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
-        <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Task"/>
-        <rdfs:range rdf:resource="https://w3id.org/MON/action.owl#TaskParameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/MON/action.owl#Behavior"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/action.owl#BehaviorParameter"/>
         <rdfs:comment xml:lang="en">It associates the Task with its parameters.</rdfs:comment>
         <rdfs:label xml:lang="en">has parameter</rdfs:label>
     </owl:ObjectProperty>
@@ -221,23 +221,33 @@ On 23 April 2015 from 3pm to 4p,, X played some music for Monica.
     
 
 
+    <!-- https://w3id.org/MON/action.owl#Behavior -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/action.owl#Behavior">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/action.owl#Task"/>
+        <rdfs:comment xml:lang="en">A Behavior is a task, implemented in as software artifact, that aims to realize a specific goal.</rdfs:comment>
+        <rdfs:label xml:lang="en">Behavior</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#BehaviorParameter -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/action.owl#BehaviorParameter">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter"/>
+        <rdfs:comment xml:lang="en">A parameter of a behavior.</rdfs:comment>
+        <rdfs:label xml:lang="en">Behavior parameter</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/MON/action.owl#Task -->
 
     <owl:Class rdf:about="https://w3id.org/MON/action.owl#Task">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
         <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
         <rdfs:comment xml:lang="en">Any EventType that aims at releasing a goal.</rdfs:comment>
-        <rdfs:label xml:lang="en">Behavior</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/MON/action.owl#TaskParameter -->
-
-    <owl:Class rdf:about="https://w3id.org/MON/action.owl#TaskParameter">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Parameter"/>
-        <rdfs:comment xml:lang="en">A parameter of a behavior.</rdfs:comment>
-        <rdfs:label xml:lang="en">Behavior parameter</rdfs:label>
+        <rdfs:label xml:lang="en">Task</rdfs:label>
     </owl:Class>
     
 

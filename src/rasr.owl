@@ -12,6 +12,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://w3id.org/MON/rasr.owl">
         <owl:imports rdf:resource="https://kadegraaf.nl/oce-ontology.owl"/>
+        <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
         <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/RASROntology.png"/>
         <dc:description xml:lang="en">This ontology extends &lt;a href=&quot;https://kadegraaf.nl/oce-ontology.owl&quot;&gt;ocè ontology&lt;/a&gt; for establishing a vocabulary for specifying software architectures of Social Robots.
 The reference architecture on which this ontology relies on has been introduced in [1]. The UML component diagram of the architecture is depicted in the following figure
@@ -23,10 +24,10 @@ The reference architecture on which this ontology relies on has been introduced 
 [1] L.Asprino, P. Ciancarini, A. G. Nuzzolese, V. Presutti and A.Russo. A Reference Software Architecture for Social Robots. (&lt;a href=&quot;https://arxiv.org/abs/2007.04933&quot;&gt;preprint&lt;/a&gt;)</dc:description>
         <dc:title xml:lang="en">RASR Ontology</dc:title>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -34,22 +35,22 @@ The reference architecture on which this ontology relies on has been introduced 
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
-    
+
 
 
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -57,7 +58,7 @@ The reference architecture on which this ontology relies on has been introduced 
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#includes -->
@@ -68,7 +69,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:range rdf:resource="https://w3id.org/MON/rasr.owl#Component"/>
         <rdfs:label xml:lang="en">includes</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#provides -->
@@ -79,10 +80,10 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:range rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">provides</rdfs:label>
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -90,7 +91,15 @@ The reference architecture on which this ontology relies on has been introduced 
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
+
+
+    <!-- https://w3id.org/MON/action.owl#Task -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+        <owl:equivalentClass rdf:resource="https://w3id.org/MON/rasr.owl#Component:Behavior"/>
+    </rdf:Description>
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component -->
@@ -100,7 +109,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:comment xml:lang="en">An software component is a software package, a web service, a web resource, or a module that encapsulates a set of related functions (or data). This class encloses all the software components of an architecture.</rdfs:comment>
         <rdfs:label xml:lang="en">Component</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface -->
@@ -110,7 +119,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:comment xml:lang="en">An interface is a shared boundary across which two or more separate components of an architecture exchange information. This class encloses all the interfaces provided by the software components.</rdfs:comment>
         <rdfs:label xml:lang="en">Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Subsystem -->
@@ -120,7 +129,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:comment xml:lang="en">A subsystem is a collection of software components that together implement one or more functionalities. This class encloses all the subsystems of a software architecture.</rdfs:comment>
         <rdfs:label xml:lang="en">Subsystem</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:Behavior -->
@@ -130,13 +139,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:BehaviorControlInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:BehaviorControlInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A Behavior is a software artifact that aims to realize a specific goal. Examples of Behaviors include “entertain the user”, “locate a user”, “take user to a place” etc.</rdfs:comment>
         <rdfs:label xml:lang="en">Behavior</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:BehaviorManager -->
@@ -146,13 +155,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageBehaviorInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageBehaviorInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Behavior Manager is meant to install new Behaviors.</rdfs:comment>
         <rdfs:label>Behavior Manager</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:BehaviorScheduler -->
@@ -162,7 +171,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:comment xml:lang="en">A Behavior Scheduler is a special Behavior that actively coordinates the other Behaviors and manages the functional capabilities of the robot. Specifically, the Behavior Scheduler is responsible for: (i) Processing incoming data/events and reasoning over the actual state and available knowledge in order to detect situations that require to activate a Behavior; (ii) Coordinating, scheduling and prioritizing Behavior execution; (iii) Activating, suspending, resuming and terminating Behaviors, as a result of a continuous decision making process; (iv) Monitoring Behavior executions, to detect successful Behavior completions as well as abnormal terminations, failures and exceptions.</rdfs:comment>
         <rdfs:label xml:lang="en">Behavior Scheduler</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:ConvolutedCapabilityManager -->
@@ -172,13 +181,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageConvolutedCapabilityInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageConvolutedCapabilityInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Convoluted Capability Manager is meant to install new Convoluted Capabilities in the Architecture.</rdfs:comment>
         <rdfs:label xml:lang="en">Convoluted Capability Manager</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:ConvolutedCapabilityModule -->
@@ -188,13 +197,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ConvolutedCapabilityModuleInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ConvolutedCapabilityModuleInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Any software artifact delivering any convoluted capability (e.g. natural language understanding).</rdfs:comment>
         <rdfs:label xml:lang="en">Convoluted Capability Module</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:HCIManager -->
@@ -204,13 +213,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:HCIManagerInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:HCIManagerInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The HCI Manager component aims at providing Behaviors with facilities for managing the robot’s human control interfaces (like buttons or tablets).</rdfs:comment>
         <rdfs:label xml:lang="en">HCI Manager</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:HotDeployManager -->
@@ -220,13 +229,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageModuleInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageModuleInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Hot Deploy Manager is the software component that effectively install new artefacts in the architecture.</rdfs:comment>
         <rdfs:label xml:lang="en">Hot Deploy Manager</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:KnowledgeBase -->
@@ -236,13 +245,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:CreateReadUpdateDeleteOnKnowledgeBaseInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:CreateReadUpdateDeleteOnKnowledgeBaseInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Knowledge Base is the component intended to store the robot’s knowledge in a structured format.</rdfs:comment>
         <rdfs:label xml:lang="en">Knowledge Base</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:ObjectOntologyMappingManager -->
@@ -252,13 +261,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageObjectOntologyMappingModuleInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:ManageObjectOntologyMappingModuleInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Object Ontology Mapping Manager is meant to install new Object Ontology Mapping Module in the Architecture.</rdfs:comment>
         <rdfs:label xml:lang="en">Object Ontology Mapping Manager</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:ObjectOntologyMappingModule -->
@@ -268,13 +277,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:CreateReadUpdateDeleteInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:CreateReadUpdateDeleteInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An Object Ontology Mapping Module is a REST service that provides software components with the access to the Knowledge Base.</rdfs:comment>
         <rdfs:label xml:lang="en">Object Ontology Mapping Module</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:PerceptionAndMotionController -->
@@ -284,13 +293,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:PerceptionAndMotionControllerInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:PerceptionAndMotionControllerInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Perception And Motion Controller provides functional capabilities for supporting human-robot and environment-robot interactions. It includes a set of software components that enable the robot to perform a series of motion routines (e.g., approaching the user, following the user, recharging, driving the user to a destination, etc.)</rdfs:comment>
         <rdfs:label xml:lang="en">Perception And Motion Controller</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:SemanticBus -->
@@ -300,20 +309,20 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom>
+                <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="https://w3id.org/MON/rasr.owl#Interface:PubSubInterface"/>
                             <rdf:Description rdf:about="https://w3id.org/MON/rasr.owl#Interface:TopicManagementInterface"/>
                         </owl:unionOf>
                     </owl:Class>
-                </owl:allValuesFrom>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Semantic Bus is meant to provide the components with a message-based asynchronous communication mechanism according to the publish/subscribe paradigm.</rdfs:comment>
         <rdfs:label xml:lang="en">Semantic Bus</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:Speech2Text -->
@@ -323,13 +332,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:S2TInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:S2TInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Speech To Text component converts spoken language into digitally-encoded text.</rdfs:comment>
         <rdfs:label xml:lang="en">Speech To Text</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Component:Text2Speech -->
@@ -339,13 +348,13 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/MON/rasr.owl#provides"/>
-                <owl:allValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:T2SInterface"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/rasr.owl#Interface:T2SInterface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The Text To Speech component aims at converting natural language text into speech.</rdfs:comment>
         <rdfs:label xml:lang="en">Text To Speech</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:BehaviorControlInterface -->
@@ -354,7 +363,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Behavior control Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:ConvolutedCapabilityModuleInterface -->
@@ -363,7 +372,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Convoluted Capability Module Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:CreateReadUpdateDeleteInterface -->
@@ -372,7 +381,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Create Read Update Delete Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:CreateReadUpdateDeleteOnKnowledgeBaseInterface -->
@@ -381,7 +390,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Create Read Updated Delete On Knowledge Base Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:HCIManagerInterface -->
@@ -390,7 +399,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">HCI Manager Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:ManageBehaviorInterface -->
@@ -399,7 +408,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Manage Behavior Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:ManageConvolutedCapabilityInterface -->
@@ -408,7 +417,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Manage Convoluted Capability Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:ManageModuleInterface -->
@@ -417,7 +426,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Manage Module Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:ManageObjectOntologyMappingModuleInterface -->
@@ -426,7 +435,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Manage Object Ontology Mapping Module Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:PerceptionAndMotionControllerInterface -->
@@ -435,7 +444,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Perception And Motion Controller Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:PubSubInterface -->
@@ -444,7 +453,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Publish/Subscribe Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:S2TInterface -->
@@ -453,7 +462,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Speech To Text Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:T2SInterface -->
@@ -462,7 +471,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Text To Speech Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Interface:TopicManagementInterface -->
@@ -471,7 +480,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Interface"/>
         <rdfs:label xml:lang="en">Topic Management Interface</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:Behaviors -->
@@ -494,7 +503,7 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:comment xml:lang="en">The Behaviors layer comprises all the architectural components needed for implementing a Behavioral Robotics approach.</rdfs:comment>
         <rdfs:label xml:lang="en">Behaviors</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:Capabilities -->
@@ -519,7 +528,7 @@ The reference architecture on which this ontology relies on has been introduced 
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Capabilities</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:HotDeploySupport -->
@@ -543,7 +552,7 @@ The reference architecture on which this ontology relies on has been introduced 
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Hot Deploy Support</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:KnowledgeBase -->
@@ -558,7 +567,7 @@ The reference architecture on which this ontology relies on has been introduced 
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Knowledge Base</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:ObjectOntologyMappingAPI -->
@@ -573,7 +582,7 @@ The reference architecture on which this ontology relies on has been introduced 
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Object Ontology Mapping API</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:SemanticBus -->
@@ -588,7 +597,7 @@ The reference architecture on which this ontology relies on has been introduced 
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Semantic Bus</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#Layer:SemanticBusAPI -->
@@ -597,10 +606,10 @@ The reference architecture on which this ontology relies on has been introduced 
         <rdfs:subClassOf rdf:resource="https://w3id.org/MON/rasr.owl#Subsystem"/>
         <rdfs:label xml:lang="en">Semantic Bus API</rdfs:label>
     </owl:Class>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -608,7 +617,7 @@ The reference architecture on which this ontology relies on has been introduced 
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- https://w3id.org/MON/rasr.owl#rasr -->
@@ -621,4 +630,3 @@ The reference architecture on which this ontology relies on has been introduced 
 
 
 <!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

@@ -14,7 +14,40 @@
         <owl:imports rdf:resource="https://w3id.org/MON/multimediacontent.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/person.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
-        <dc:description xml:lang="en">The aim of the tagging ontology is to represent a tagging action, i.e the action performed by an agent that attaches a label or something with a well-defined semantics (eg. a concept or a frame etc.) to some entity.</dc:description>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Tagging.png"/>
+        <dc:description xml:lang="en">The aim of the tagging ontology is to represent a tagging action, i.e the action performed by an agent that attaches a label or something with a well-defined semantics (eg. a concept or a frame etc.) to some entity.
+
+&lt;b&gt;Example of Usage&lt;/b&gt;
+
+We provide an example of usage of the Tagging ontology for specifying the following scenario.
+
+&lt;b&gt;Scenario&lt;/b&gt; annotating a picture about the birthday of his patient John. 
+This picture was takes at John&apos;s 51st birthday on January 20 1971. 
+
+
+
+&lt;pre&gt;
+@prefix time: &amp;#60;https://w3id.org/MON/time.owl#&amp;#62;
+@prefix event: &amp;#60;https://w3id.org/MON/event.owl#&amp;#62;
+@prefix spatial: &amp;#60;https://w3id.org/MON/spatial.owl#&amp;#62;
+@prefix media: &amp;#60;https://w3id.org/MON/multimediacontent.owl#&amp;#62;
+
+:January_20_1971 a time:TemporalEntity .
+
+:John_51st_birthday a event:Event ;
+  spatial:hasPlace :Piper_Club ;
+  time:atTime :January_20_1971 .
+
+:John_picture a media:Image .
+
+:Piper_Club a spatial:SpatialThing .
+
+:tag_John_51st_birthday a tagging:Tag .
+
+:tagging_John_51st_birthday a tagging:Tagging ;
+  tagging:forEntity :John_51st_birthday, :John_picture;
+  tagging:usingTag :tag_John_51st_birthday .  
+&lt;/pre&gt;</dc:description>
         <dc:title xml:lang="en">Tagging Ontology</dc:title>
         <j.0:coversRequirements xml:lang="en">Which is the entity associated to a certain tag?</j.0:coversRequirements>
         <j.0:coversRequirements xml:lang="en">Which is the tag associated with a certain photo or events?</j.0:coversRequirements>

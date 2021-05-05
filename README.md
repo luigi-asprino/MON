@@ -10,9 +10,7 @@ Nevertheless, they also provide us with detailed descriptions about the nature o
 
 Currently, the MON consists of 12 knowledge areas and 40 modules.
 
-## Knowledge Areas
-
-TBD
+<!--## Knowledge Areas TBD-->
 
 ## Tracking the usage
 

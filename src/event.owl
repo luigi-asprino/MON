@@ -12,7 +12,7 @@
         <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/spatial.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
-        <dc:description rdf:resource="https://github.com/luigi-asprino/MON/blob/main/src/Event.png"/>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Event.png"/>
         <dc:description xml:lang="en">The aim of the MON&apos;s Event module is to enable the robot to trace the relevant events it is involved in.
 An &lt;tt&gt;Event&lt;/tt&gt; relates a number of agents and entities involved in the event, the place where the event takes place and the time when the event occurs.</dc:description>
         <dc:title>Event Ontology</dc:title>

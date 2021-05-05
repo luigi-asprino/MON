@@ -13,6 +13,7 @@
         <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/tagging.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/time.owl"/>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Media.png"/>
         <dc:description xml:lang="en">The MON&apos;s Multimedia Content module provides a model for building an archive of multimedia files.</dc:description>
         <dc:title xml:lang="en">Multimedia content ontology</dc:title>
         <j.0:hasIntent xml:lang="en">To represent digital contents e.g. audio, video, images etc.</j.0:hasIntent>

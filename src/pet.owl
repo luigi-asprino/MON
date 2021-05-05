@@ -1,78 +1,148 @@
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="https://w3id.org/MON/pet.owl">
-    <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
-    <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
-  </owl:Ontology>
-  <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetGender">
-    <rdfs:label xml:lang="en">Pet gender</rdfs:label>
-    <rdfs:comment xml:lang="en">The gender of a Pet which is used for verbalization purpose.</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetType"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/pet.owl#Pet">
-    <rdfs:label xml:lang="en">Pet</rdfs:label>
-    <rdfs:comment xml:lang="en">A domestic animal kept for companionship.</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetType"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="https://w3id.org/MON/pet.owl#hasPetType"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Agent">
-        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-        <owl:disjointWith>
-          <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetType"/>
-        </owl:disjointWith>
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/MON/pet.owl#"
+     xml:base="https://w3id.org/MON/pet.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/MON/pet.owl">
+        <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
+        <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
+        <dc:description xml:lang="en">The MON&apos;s Pet module is aimed at modeling the information related to pets.</dc:description>
+        <dc:title xml:lang="en">Pet Ontology</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/pet.owl#hasPetGender -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/pet.owl#hasPetGender">
+        <rdfs:domain rdf:resource="https://w3id.org/MON/pet.owl#Pet"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
+        <rdfs:comment xml:lang="en">It associates a Pet with its gender.</rdfs:comment>
+        <rdfs:label xml:lang="en">has pet gender</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/MON/pet.owl#hasPetType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/pet.owl#hasPetType">
+        <rdfs:domain rdf:resource="https://w3id.org/MON/pet.owl#Pet"/>
+        <rdfs:range rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
+        <rdfs:label xml:lang="en">has pet type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Action -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
         <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
-        <owl:disjointWith>
-          <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
-            <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-            <owl:disjointWith>
-              <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetType"/>
-            </owl:disjointWith>
-            <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
-          </rdf:Description>
-        </owl:disjointWith>
-      </rdf:Description>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetType">
-    <rdfs:label xml:lang="en">Pet Type</rdfs:label>
-    <rdfs:comment xml:lang="en">The type of a Pet (e.g. Cat, Dog etc).</rdfs:comment>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://w3id.org/MON/pet.owl#hasPetType">
-    <rdfs:label xml:lang="en">has pet type</rdfs:label>
-    <rdfs:range rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
-    <rdfs:domain rdf:resource="https://w3id.org/MON/pet.owl#Pet"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://w3id.org/MON/pet.owl#hasPetGender">
-    <rdfs:label xml:lang="en">has pet gender</rdfs:label>
-    <rdfs:comment xml:lang="en">It associates a Pet with its gender.</rdfs:comment>
-    <rdfs:range rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
-    <rdfs:domain rdf:resource="https://w3id.org/MON/pet.owl#Pet"/>
-  </owl:ObjectProperty>
-  <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Action">
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
-    <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
-  </rdf:Description>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Agent -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Agent">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/action.owl#Task"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/action.owl#Task -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/action.owl#Task">
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetGender"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/MON/pet.owl#Pet -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/pet.owl#Pet">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/action.owl#Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/pet.owl#hasPetType"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A domestic animal kept for companionship.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/pet.owl#PetGender -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetGender">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/pet.owl#PetType"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">The gender of a Pet which is used for verbalization purpose.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pet gender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/pet.owl#PetType -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/pet.owl#PetType">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/MON/time.owl#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">The type of a Pet (e.g. Cat, Dog etc).</rdfs:comment>
+        <rdfs:label xml:lang="en">Pet Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/time.owl#TemporalEntity -->
+
+    <rdf:Description rdf:about="https://w3id.org/MON/time.owl#TemporalEntity"/>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

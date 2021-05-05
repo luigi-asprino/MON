@@ -10,7 +10,26 @@
     <owl:Ontology rdf:about="https://w3id.org/MON/pet.owl">
         <owl:imports rdf:resource="https://w3id.org/MON/action.owl"/>
         <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
-        <dc:description xml:lang="en">The MON&apos;s Pet module is aimed at modeling the information related to pets.</dc:description>
+        <dc:description rdf:resource="https://raw.githubusercontent.com/luigi-asprino/MON/main/src/Pet.png"/>
+        <dc:description xml:lang="en">The MON&apos;s Pet module is aimed at modeling the information related to pets.
+
+&lt;b&gt;Example of Usage&lt;/b&gt;
+
+We provide an example of usage of the Pet ontology for specifying the following scenario.
+Felix is a female cat.
+
+&lt;pre&gt;
+@prefix pet: &amp;#60;https://w3id.org/MON/pet.owl&amp;#62;
+@prefix generic: &amp;#60;https://w3id.org/MON/generic.owl#&amp;#62;
+
+:felix a pet:Pet ;
+   pet:hasPetGender :female ;
+   generic:name &quot;Felix&quot; .
+
+:female a pet:PetGender ;
+    generic:name &quot;Gender Female&quot; .
+
+&lt;/pre&gt;</dc:description>
         <dc:title xml:lang="en">Pet Ontology</dc:title>
     </owl:Ontology>
     

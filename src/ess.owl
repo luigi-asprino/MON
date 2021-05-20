@@ -1,177 +1,253 @@
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:j.0="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
-  <owl:Ontology rdf:about="https://w3id.org/MON/ess.owl">
-    <owl:imports rdf:resource="https://w3id.org/MON/cga.owl"/>
-    <j.0:coversRequirements xml:lang="en">Which was the patient's score at the exton-smith scale (ESS) at a certain time?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which was the patient's incontinence level at a certain time? Was s/he double incontinent? Was s/he usually incontinent of urine? Was s/he occasionally incontinent? Or, wasn't s/he incontinent?</j.0:coversRequirements>
-    <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
-    <j.0:coversRequirements xml:lang="en">Which was the patient's activity level at a certain time? Did s/he stay in the bed all the day? Did s/he need of a chairfast? Did s/he walk with help? Or, was s/he ambulant?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which is the score associated with the patient incontinence level?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which was the patient's mobility in bed at a certain time? Was s/he immobile, very limited, slightly limited, or full?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which is the score associated with the patient mobility?</j.0:coversRequirements>
-    <j.0:hasIntent xml:lang="en">To represent the Exton-Smith Scale (ESS).</j.0:hasIntent>
-    <j.0:coversRequirements xml:lang="en">How was the mental state of a patient at a certain time? Was it Stuporosous, Confused, Apathetic or Alert?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which is the range of ESS scores associated with the high/medium/low risk of sores?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which is the score associated with a patient condition?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">How was the condition of patient at a certain time? Was it Bad, Poor, Fair or Good?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which is the score associated with a patient activity level?</j.0:coversRequirements>
-    <j.0:coversRequirements xml:lang="en">Which is the score associated with a patient mental state?</j.0:coversRequirements>
-  </owl:Ontology>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Activity">
-    <rdfs:label xml:lang="en">Activity</rdfs:label>
-    <rdfs:comment xml:lang="en">The Activity (e.g. in bed all day, chairfast etc.) of a patient as intended in the Exton-Smith Scale.</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PatientCondition"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PatientCondition">
-    <rdfs:label xml:lang="en">Patient condition</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class>
-            <owl:unionOf rdf:parseType="Collection">
-              <rdf:Description rdf:about="https://w3id.org/MON/cga.owl#ClinicalTest"/>
-              <rdf:Description rdf:about="https://w3id.org/MON/cga.owl#Question"/>
-            </owl:unionOf>
-          </owl:Class>
-        </owl:allValuesFrom>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#isAssessedBy"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Exton-SmithScaleAssessment">
-    <rdfs:label xml:lang="en">Exton-Smith Scale (ESS) Assessment</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
-    <rdfs:comment xml:lang="en">An action aiming at assessing the Exton-Smith Scale for a patient.</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PatientGeneralCondition"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="https://w3id.org/MON/ess.owl#MobilityInBed"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="https://w3id.org/MON/ess.owl#MentalState"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Incontinence"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#Activity"/>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PressureSoresRisk"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="https://w3id.org/MON/ess.owl#hasPressureSoresRisk"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PressureSoresRisk">
-    <rdfs:label xml:lang="en">Pressure sores risk</rdfs:label>
-    <rdfs:comment xml:lang="en">A risk (e.g. high, medium etc.) of pressure sores.</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#scoreMin"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#scoreMax"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#MobilityInBed">
-    <rdfs:label xml:lang="en">Mobility in bed</rdfs:label>
-    <rdfs:comment xml:lang="en">The mobility in bed (e.g. immobile, very limited etc) of a patient as intended  in the Exton-Smith Scale.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PatientGeneralCondition">
-    <rdfs:label xml:lang="en">Patient general condition</rdfs:label>
-    <rdfs:comment xml:lang="en">The general condition (e.g. bad, good, fair etc) of a patient as intended  in the Exton-Smith Scale.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#MentalState">
-    <rdfs:label xml:lang="en">Mental state</rdfs:label>
-    <rdfs:comment xml:lang="en">The Mental State (e.g. confused, alert etc.) of a patient as intended in the Exton-Smith Scale.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#MobilityInBed"/>
-  </owl:Class>
-  <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Incontinence">
-    <rdfs:label xml:lang="en">Incontinence</rdfs:label>
-    <rdfs:comment xml:lang="en">The incontinence (e.g. doubly incontinent, usually of urine etc.) of a patient as intended in the Exton-Smith Scale.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://w3id.org/MON/ess.owl#hasPressureSoresRisk">
-    <rdfs:label xml:lang="en">has pressure sores risk</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:FunctionalProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition">
-    <rdfs:label xml:lang="en">has condition</rdfs:label>
-    <rdfs:comment xml:lang="en">It associates an ESS assessment with the found condition.</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/MON/ess.owl#"
+     xml:base="https://w3id.org/MON/ess.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:j.0="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/MON/ess.owl">
+        <owl:imports rdf:resource="https://w3id.org/MON/cga.owl"/>
+        <owl:imports rdf:resource="https://w3id.org/MON/generic.owl"/>
+        <dc:title xml:lang="en">Exton-Smith Scale Ontology</dc:title>
+        <j.0:coversRequirements xml:lang="en">How was the condition of patient at a certain time? Was it Bad, Poor, Fair or Good?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">How was the mental state of a patient at a certain time? Was it Stuporosous, Confused, Apathetic or Alert?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which is the range of ESS scores associated with the high/medium/low risk of sores?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which is the score associated with a patient activity level?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which is the score associated with a patient condition?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which is the score associated with a patient mental state?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which is the score associated with the patient incontinence level?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which is the score associated with the patient mobility?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which was the patient&apos;s activity level at a certain time? Did s/he stay in the bed all the day? Did s/he need of a chairfast? Did s/he walk with help? Or, was s/he ambulant?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which was the patient&apos;s incontinence level at a certain time? Was s/he double incontinent? Was s/he usually incontinent of urine? Was s/he occasionally incontinent? Or, wasn&apos;t s/he incontinent?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which was the patient&apos;s mobility in bed at a certain time? Was s/he immobile, very limited, slightly limited, or full?</j.0:coversRequirements>
+        <j.0:coversRequirements xml:lang="en">Which was the patient&apos;s score at the exton-smith scale (ESS) at a certain time?</j.0:coversRequirements>
+        <j.0:hasIntent xml:lang="en">To represent the Exton-Smith Scale (ESS).</j.0:hasIntent>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/ess.owl#hasCondition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">It associates an ESS assessment with the found condition.</rdfs:comment>
+        <rdfs:label xml:lang="en">has condition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#hasPressureSoresRisk -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/MON/ess.owl#hasPressureSoresRisk">
+        <rdfs:label xml:lang="en">has pressure sores risk</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#Activity -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Activity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
+        <rdfs:comment xml:lang="en">The Activity (e.g. in bed all day, chairfast etc.) of a patient as intended in the Exton-Smith Scale.</rdfs:comment>
+        <rdfs:label xml:lang="en">Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#Exton-SmithScaleAssessment -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Exton-SmithScaleAssessment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/cga.owl#GeriatricAssessment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/ess.owl#hasCondition"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#Activity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/ess.owl#hasCondition"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#Incontinence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/ess.owl#hasCondition"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#MentalState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/ess.owl#hasCondition"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#MobilityInBed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/ess.owl#hasCondition"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#PatientGeneralCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/ess.owl#hasPressureSoresRisk"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/MON/ess.owl#PressureSoresRisk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An action aiming at assessing the Exton-Smith Scale for a patient.</rdfs:comment>
+        <rdfs:label xml:lang="en">Exton-Smith Scale (ESS) Assessment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#Incontinence -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#Incontinence">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
+        <rdfs:comment xml:lang="en">The incontinence (e.g. doubly incontinent, usually of urine etc.) of a patient as intended in the Exton-Smith Scale.</rdfs:comment>
+        <rdfs:label xml:lang="en">Incontinence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#MentalState -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#MentalState">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#MobilityInBed"/>
+        <rdfs:comment xml:lang="en">The Mental State (e.g. confused, alert etc.) of a patient as intended in the Exton-Smith Scale.</rdfs:comment>
+        <rdfs:label xml:lang="en">Mental state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#MobilityInBed -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#MobilityInBed">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
+        <rdfs:comment xml:lang="en">The mobility in bed (e.g. immobile, very limited etc) of a patient as intended  in the Exton-Smith Scale.</rdfs:comment>
+        <rdfs:label xml:lang="en">Mobility in bed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#PatientCondition -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PatientCondition">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#isAssessedBy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/MON/cga.owl#ClinicalTest"/>
+                            <rdf:Description rdf:about="https://w3id.org/MON/cga.owl#Question"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#score"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Patient condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#PatientGeneralCondition -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PatientGeneralCondition">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/MON/ess.owl#PatientCondition"/>
+        <rdfs:comment xml:lang="en">The general condition (e.g. bad, good, fair etc) of a patient as intended  in the Exton-Smith Scale.</rdfs:comment>
+        <rdfs:label xml:lang="en">Patient general condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/MON/ess.owl#PressureSoresRisk -->
+
+    <owl:Class rdf:about="https://w3id.org/MON/ess.owl#PressureSoresRisk">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#scoreMax"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/cga.owl#scoreMin"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/MON/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A risk (e.g. high, medium etc.) of pressure sores.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pressure sores risk</rdfs:label>
+    </owl:Class>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
